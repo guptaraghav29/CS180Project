@@ -1,10 +1,11 @@
 import Head from 'next/head';
+import Link from 'next/link'
 import React from 'react';
 
 function Home() {
     return (
         <body>
-            <h1 class="center"> Welcome to our CS180 Project! </h1>
+            <h1 className="center"> Welcome to our CS180 Project! </h1>
             <br></br>
             <br></br>
             <br></br>
