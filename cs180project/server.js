@@ -3,7 +3,7 @@ const express = require('express');
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
-const port = 3000
+const port = process.env.PORT || 3000
 const handle = app.getRequestHandler();
 
 app.prepare().then(() => {
@@ -17,12 +17,12 @@ app.prepare().then(() => {
         if (err) 
             throw err
         else
-            console.log(`Webpage ready on http://localhost:${port}`)
+            console.log('Listening on port ' + port)
+            // console.log(server.)
     })
 
-    server.get('*', (req, res) => {
+    server.get('', (req, res) => {
         return res.send('site up')
+        console.log(res.status(200))
     })
 })
-
-console.log("hello ")
