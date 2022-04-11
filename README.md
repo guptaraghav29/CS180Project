@@ -17,10 +17,22 @@ We will be using a used cars database and perform data analytics to do the folll
 3. Given a location, show all the cars that are competition for you and make a datavis tool to show it in. relation to your car.
 4. Add a datavis graph to show how the model is trending.
 
-> Start the back-end server
-> $ cd server
-> $ npm run dev
+ ## Installation/Usage
+ > Install NPM packages
+ 
+     $ cd server
+     $ npm i --force
+     $ cd client
+     $ npm -i --force
+  
+ > Start the back-end server
+ 
+     $ cd server
+     $ npm run dev
+  
+ > Start the front-end
+ 
+     $ cd client
+     $ npm start
+     
 
-> Start the front-end
-> $ cd client
-> $ npm start
