@@ -6,7 +6,7 @@ app.get("/cars", (req, res) => {
   //   const readStream = fs.createReadStream("large-file.json"); // create read stream
   //   readStream.pipe(res); // pass data to client as a writeable stream
   csv()
-    .fromFile("data/sample.csv")
+    .fromFile("data/vehicles.csv")
     .then((jsonObj) => {
       res.json(jsonObj);
     });

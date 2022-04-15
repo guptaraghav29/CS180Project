@@ -12,6 +12,7 @@ const CarYears = ({ modelYears, style }) => {
         options={modelYears}
         sx={{ width: 350 }}
         renderInput={(params) => <TextField {...params} label="Year" />}
+        isOptionEqualToValue={(option, value) => option.id === value.id}
         autoComplete={true}
         autoHighlight={true}
         clearOnEscape={true}
