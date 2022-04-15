@@ -19,6 +19,8 @@ const CarModels = ({ companyModels, currentModel, setCurrentModel, style }) => {
         onChange={(event, userSelection) => {
           setCurrentModel(userSelection);
         }}
+        isOptionEqualToValue={(option, value) => option.id === value.id}
+        i
         autoComplete={true}
         autoHighlight={true}
         clearOnEscape={true}

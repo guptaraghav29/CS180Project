@@ -16,7 +16,10 @@ function App() {
   useEffect(() => {
     fetch("/cars")
       .then((response) => response.json())
-      .then((data) => setCarData(data))
+      .then((data) => {
+        setCarData(JSON.parse(JSON.stringify(data)));
+        console.log(data);
+      })
       .catch((error) => console.log(error));
   }, []);
 
@@ -40,7 +43,7 @@ function App() {
       if (
         car.manufacturer === currentCompany &&
         carModels.indexOf(car.model) === -1 &&
-        car.manufacturer.length > 0
+        car.model.length > 0
       ) {
         carModels.push(car.model);
       }
@@ -59,7 +62,7 @@ function App() {
     years.sort();
     setModelYears(years);
   }, [currentModel, carData]);
-
+  console.log(currentCompany);
   return (
     <div className="flex flex-col items-center">
       <h1 className="center text-2xl"> Used Car Dataset </h1>
@@ -75,13 +78,21 @@ function App() {
           companyModels={companyModels}
           currentModel={currentModel}
           setCurrentModel={setCurrentModel}
-          style={{ display: currentCompany !== "" ? "block" : "none" }}
+          style={{
+            display:
+              currentCompany !== "" && currentCompany !== null
+                ? "block"
+                : "none",
+          }}
         />
       </div>
       <div className="py-2">
         <CarYears
           modelYears={modelYears}
-          style={{ display: currentModel !== "" ? "block" : "none" }}
+          style={{
+            display:
+              currentModel !== "" && currentModel !== null ? "block" : "none",
+          }}
         />
       </div>
     </div>
