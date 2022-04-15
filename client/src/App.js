@@ -12,6 +12,7 @@ function App() {
   const [currentModel, setCurrentModel] = useState("");
   const [modelYears, setModelYears] = useState([]);
   const [currentYear, setCurrentYear] = useState("");
+  const [currentChoice, setCurrentChoice] = useState([]);
 
   useEffect(() => {
     fetch("/cars")
@@ -60,8 +61,20 @@ function App() {
     setModelYears(years);
   }, [currentModel, carData]);
 
+  useEffect(() => {
+    carData.forEach((car) => {
+      if (
+        car.manufacturer === currentCompany &&
+        car.model === currentModel &&
+        car.year === currentYear
+      ) {
+        setCurrentChoice(Object.entries(car));
+      }
+    });
+  }, [carData, currentModel, currentCompany, currentYear]);
+
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col justify-center items-center">
       <h1 className="center text-2xl"> Used Car Dataset </h1>
       <div className="py-2">
         <CarBrands
@@ -81,8 +94,26 @@ function App() {
       <div className="py-2">
         <CarYears
           modelYears={modelYears}
+          value={currentYear}
+          setCurrentYear={setCurrentYear}
           style={{ display: currentModel !== "" ? "block" : "none" }}
         />
+      </div>
+
+      <div className="">
+        {currentYear !== "" && currentYear != null
+          ? currentChoice.map((carDetail) => {
+              if (carDetail[0] === "description") return;
+              return (
+                <div key={carDetail[0]} class="flex text-center justify-center">
+                  <h2 className="font-bold mx-3">
+                    {carDetail[1] === "" ? "" : carDetail[0]}{" "}
+                  </h2>
+                  <h2> {carDetail[1]} </h2>
+                </div>
+              );
+            })
+          : null}
       </div>
     </div>
   );
