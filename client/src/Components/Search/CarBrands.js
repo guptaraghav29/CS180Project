@@ -4,7 +4,7 @@ import Autocomplete from "@mui/material/Autocomplete";
 
 const CarBrands = ({ carCompanies, currentCompany, setCurrentCompany }) => {
   return (
-    <div>
+    <div data-testid="car-brands">
       <Autocomplete
         disablePortal
         id="car-companies"
