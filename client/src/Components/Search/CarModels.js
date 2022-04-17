@@ -11,7 +11,7 @@ const CarModels = ({ companyModels, currentModel, setCurrentModel, style }) => {
         id="company-models"
         value={currentModel}
         options={companyModels}
-        sx={{ width: 350 }}
+        sx={{ width: 365 }}
         renderInput={(params) => <TextField {...params} label="Model" />}
         onInputChange={(event, userSelection) => {
           setCurrentModel(userSelection);
@@ -20,7 +20,6 @@ const CarModels = ({ companyModels, currentModel, setCurrentModel, style }) => {
           setCurrentModel(userSelection);
         }}
         isOptionEqualToValue={(option, value) => option.id === value.id}
-        i
         autoComplete={true}
         autoHighlight={true}
         clearOnEscape={true}

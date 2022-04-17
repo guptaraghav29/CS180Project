@@ -10,8 +10,12 @@ const CarBrands = ({ carCompanies, currentCompany, setCurrentCompany }) => {
         id="car-companies"
         value={currentCompany}
         options={carCompanies}
-        sx={{ width: 350 }}
-        renderInput={(params) => <TextField {...params} label="Brand" />}
+        sx={{ width: 365 }}
+        renderInput={(params) => (
+          <div>
+            <TextField {...params} label="Brand" />
+          </div>
+        )}
         onInputChange={(event, userSelection) => {
           setCurrentCompany(userSelection);
         }}
