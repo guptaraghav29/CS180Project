@@ -4,6 +4,9 @@ import CarBrands from "./Components/Search/CarBrands";
 import CarModels from "./Components/Search/CarModels";
 import CarYears from "./Components/Search/CarYears";
 import CarTable from "./Components/Search/CarTable";
+import { Button } from "@mui/material";
+import DeleteIcon from '@mui/icons-material/Delete';
+
 
 function App() {
   const [carData, setCarData] = useState([]);
@@ -73,15 +76,15 @@ function App() {
         carTable.push({
           id: car.id,
           region: car.region,
-          manufacturer: car.manufacturer,
+          brand: car.manufacturer,
           model: car.model,
           year: car.year,
           price: car.price,
           odometer: car.odometer,
-          title_status: car.title_status,
+          title_status: car.title_status.toUpperCase(),
           paint_color: car.paint_color,
-          state: car.state,
-          posting_date: car.posting_date,
+          state: car.state.toUpperCase(),
+          posting_date: car.posting_date.substr(0, 10),
         });
       }
     });
@@ -90,7 +93,7 @@ function App() {
 
   return (
     <div className="flex flex-col items-center">
-      <h1 className="center text-2xl"> Used Car Dataset </h1>
+      <h1 className="center text-4xl mb-6"> Used Car Dataset </h1>
       <div className="flex">
         <div className="py-2 px-2">
           <CarBrands
@@ -124,16 +127,21 @@ function App() {
           />
         </div>
       </div>
+
+      <div className="py-8 w-full">
       {currentCompany !== "" &&
       currentCompany !== null &&
       currentModel !== "" &&
       currentModel !== null &&
       currentYear !== "" &&
       currentYear !== null ? (
-        <CarTable carTableData={carTableData} />
+        <div>
+        <CarTable carTableData={carTableData} /> 
+         </div>
       ) : (
         <div></div>
       )}
+      </div>
     </div>
   );
 }
