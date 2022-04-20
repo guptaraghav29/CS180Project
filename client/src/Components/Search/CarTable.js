@@ -3,13 +3,12 @@ import { DataGrid } from "@mui/x-data-grid";
 
 //id,region,price,year,manufacturer,model,condition,odometer,title_status,type,paint_color,state,posting_date
 
-
 const columns = [
   {
     field: "id",
     headerName: "ID",
     headerClassName: "super-app-theme--header",
-    cellClassName: 'super-app-theme--cell',
+    cellClassName: "super-app-theme--cell",
     headerAlign: "center",
     flex: 1,
     renderCell: (cellValues) => {
@@ -17,11 +16,12 @@ const columns = [
         <div
           style={{
             width: "100%",
-            textAlign: "center"
+            textAlign: "center",
           }}
         >
           {cellValues.value}
-        </div>);
+        </div>
+      );
     },
   },
   {
@@ -35,11 +35,12 @@ const columns = [
         <div
           style={{
             width: "100%",
-            textAlign: "center"
+            textAlign: "center",
           }}
         >
           {cellValues.value}
-        </div>);
+        </div>
+      );
     },
   },
   {
@@ -53,11 +54,12 @@ const columns = [
         <div
           style={{
             width: "100%",
-            textAlign: "center"
+            textAlign: "center",
           }}
         >
           {cellValues.value}
-        </div>);
+        </div>
+      );
     },
   },
   {
@@ -71,11 +73,12 @@ const columns = [
         <div
           style={{
             width: "100%",
-            textAlign: "center"
+            textAlign: "center",
           }}
         >
           {cellValues.value}
-        </div>);
+        </div>
+      );
     },
   },
   {
@@ -89,11 +92,12 @@ const columns = [
         <div
           style={{
             width: "100%",
-            textAlign: "center"
+            textAlign: "center",
           }}
         >
           {cellValues.value}
-        </div>);
+        </div>
+      );
     },
   },
   {
@@ -107,11 +111,12 @@ const columns = [
         <div
           style={{
             width: "100%",
-            textAlign: "center"
+            textAlign: "center",
           }}
         >
           {cellValues.value}
-        </div>);
+        </div>
+      );
     },
   },
   {
@@ -125,11 +130,12 @@ const columns = [
         <div
           style={{
             width: "100%",
-            textAlign: "center"
+            textAlign: "center",
           }}
         >
           {cellValues.value}
-        </div>);
+        </div>
+      );
     },
   },
   {
@@ -143,11 +149,12 @@ const columns = [
         <div
           style={{
             width: "100%",
-            textAlign: "center"
+            textAlign: "center",
           }}
         >
           {cellValues.value}
-        </div>);
+        </div>
+      );
     },
   },
   {
@@ -161,11 +168,12 @@ const columns = [
         <div
           style={{
             width: "100%",
-            textAlign: "center"
+            textAlign: "center",
           }}
         >
           {cellValues.value}
-        </div>);
+        </div>
+      );
     },
   },
   {
@@ -173,18 +181,19 @@ const columns = [
     headerName: "State",
     headerClassName: "super-app-theme--header",
     headerAlign: "center",
-    cellClassName: 'super-app-theme--cell',
+    cellClassName: "super-app-theme--cell",
     flex: 1,
     renderCell: (cellValues) => {
       return (
         <div
           style={{
             width: "100%",
-            textAlign: "center"
+            textAlign: "center",
           }}
         >
           {cellValues.value}
-        </div>);
+        </div>
+      );
     },
   },
   {
@@ -198,20 +207,27 @@ const columns = [
         <div
           style={{
             width: "100%",
-            textAlign: "center"
+            textAlign: "center",
           }}
         >
           {cellValues.value}
-        </div>);
+        </div>
+      );
     },
   },
 ];
 
 const CarTable = ({ carTableData }) => {
   return (
-    <div style={{ height: 500, width: "100%", background: "#f9f9f9", textAlign: "center" }}>
+    <div
+      style={{
+        height: 500,
+        width: "100%",
+        background: "#f9f9f9",
+        textAlign: "center",
+      }}
+    >
       <DataGrid
-      
         rows={carTableData}
         columns={columns}
         pageSize={50}
@@ -220,11 +236,11 @@ const CarTable = ({ carTableData }) => {
         sx={{
           boxShadow: 2,
           border: 0,
-        
-          '& .MuiDataGrid-row:hover': {
+
+          "& .MuiDataGrid-row:hover": {
             background: "lightgreen",
           },
-          '& .MuiDataGrid-row:nth-of-type(odd)': {
+          "& .MuiDataGrid-row:nth-of-type(odd)": {
             background: "#EDEDED",
           },
           "& .MuiDataGrid-columnHeaderTitle": {

@@ -11,7 +11,13 @@ const CarModels = ({ companyModels, currentModel, setCurrentModel, style }) => {
         id="company-models"
         value={currentModel}
         options={companyModels}
-        sx={{ width: 365 }}
+        sx={{
+          width: 365,
+          "& .MuiOutlinedInput-notchedOutline": {
+            borderRadius: "25px",
+            boxShadow: 1,
+          },
+        }}
         renderInput={(params) => <TextField {...params} label="Model" />}
         onInputChange={(event, userSelection) => {
           setCurrentModel(userSelection);

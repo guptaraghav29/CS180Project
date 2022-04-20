@@ -8,10 +8,16 @@ const CarYears = ({ modelYears, currentYear, setCurrentYear, style }) => {
       <Autocomplete
         disablePortal
         style={style}
+        sx={{
+          width: 365,
+          "& .MuiOutlinedInput-notchedOutline": {
+            borderRadius: "25px",
+            boxShadow: 1,
+          },
+        }}
         id="model-years"
         value={currentYear}
         options={modelYears}
-        sx={{ width: 365 }}
         renderInput={(params) => <TextField {...params} label="Year" />}
         onInputChange={(event, userSelection) => {
           setCurrentYear(userSelection);

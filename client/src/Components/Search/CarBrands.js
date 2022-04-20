@@ -10,7 +10,13 @@ const CarBrands = ({ carCompanies, currentCompany, setCurrentCompany }) => {
         id="car-companies"
         value={currentCompany}
         options={carCompanies}
-        sx={{ width: 365 }}
+        sx={{
+          width: 365,
+          "& .MuiOutlinedInput-notchedOutline": {
+            borderRadius: "25px",
+            boxShadow: 1,
+          },
+        }}
         renderInput={(params) => (
           <div>
             <TextField {...params} label="Brand" />
