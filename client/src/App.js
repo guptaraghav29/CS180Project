@@ -4,8 +4,10 @@ import CarBrands from "./Components/Search/CarBrands";
 import CarModels from "./Components/Search/CarModels";
 import CarYears from "./Components/Search/CarYears";
 import CarTable from "./Components/Search/CarTable";
-import { Button } from "@mui/material";
-import DeleteIcon from '@mui/icons-material/Delete';
+import NavBar from "./Components/NavBar/NavBar";
+
+
+
 
 
 function App() {
@@ -93,8 +95,10 @@ function App() {
 
   return (
     <div className="flex flex-col items-center">
+      <div id = "models"></div>
+      <NavBar />
       <h1 className="center text-4xl mb-6"> Used Car Dataset </h1>
-      <div className="flex">
+      <div className="flex" href = "models">
         <div className="py-2 px-2">
           <CarBrands
             carCompanies={carCompanies}
@@ -142,6 +146,80 @@ function App() {
         <div></div>
       )}
       </div>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      
+      <h1 className="center text-4xl mb-6"> Advanced Search </h1>
+      <div id = "adv">
+        <NavBar />
+        <br/>
+        <div>Test2</div>
+      </div>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      
+      <div id = "prob">
+        <NavBar />
+        <br/>
+        <div>Test</div>
+      </div>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+
     </div>
   );
 }
