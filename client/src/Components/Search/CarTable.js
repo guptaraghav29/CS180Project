@@ -7,8 +7,6 @@ const columns = [
   {
     field: "id",
     headerName: "ID",
-    headerClassName: "super-app-theme--header",
-    cellClassName: "super-app-theme--cell",
     headerAlign: "center",
     flex: 1,
     renderCell: (cellValues) => {
@@ -27,7 +25,6 @@ const columns = [
   {
     field: "brand",
     headerName: "Brand",
-    headerClassName: "super-app-theme--header",
     headerAlign: "center",
     flex: 1,
     renderCell: (cellValues) => {
@@ -46,7 +43,6 @@ const columns = [
   {
     field: "model",
     headerName: "Model",
-    headerClassName: "super-app-theme--header",
     headerAlign: "center",
     flex: 1,
     renderCell: (cellValues) => {
@@ -65,7 +61,6 @@ const columns = [
   {
     field: "year",
     headerName: "Year",
-    headerClassName: "super-app-theme--header",
     headerAlign: "center",
     flex: 1,
     renderCell: (cellValues) => {
@@ -84,7 +79,6 @@ const columns = [
   {
     field: "price",
     headerName: "Price",
-    headerClassName: "super-app-theme--header",
     headerAlign: "center",
     flex: 1,
     renderCell: (cellValues) => {
@@ -103,7 +97,6 @@ const columns = [
   {
     field: "odometer",
     headerName: "Odometer",
-    headerClassName: "super-app-theme--header",
     headerAlign: "center",
     flex: 1,
     renderCell: (cellValues) => {
@@ -122,7 +115,6 @@ const columns = [
   {
     field: "title_status",
     headerName: "Status",
-    headerClassName: "super-app-theme--header",
     headerAlign: "center",
     flex: 1,
     renderCell: (cellValues) => {
@@ -141,7 +133,6 @@ const columns = [
   {
     field: "paint_color",
     headerName: "Color",
-    headerClassName: "super-app-theme--header",
     headerAlign: "center",
     flex: 1,
     renderCell: (cellValues) => {
@@ -160,7 +151,6 @@ const columns = [
   {
     field: "region",
     headerName: "Region",
-    headerClassName: "super-app-theme--header",
     headerAlign: "center",
     flex: 1,
     renderCell: (cellValues) => {
@@ -179,9 +169,7 @@ const columns = [
   {
     field: "state",
     headerName: "State",
-    headerClassName: "super-app-theme--header",
     headerAlign: "center",
-    cellClassName: "super-app-theme--cell",
     flex: 1,
     renderCell: (cellValues) => {
       return (
@@ -199,7 +187,6 @@ const columns = [
   {
     field: "posting_date",
     headerName: "Date Listed",
-    headerClassName: "super-app-theme--header",
     headerAlign: "center",
     flex: 1,
     renderCell: (cellValues) => {
@@ -246,7 +233,9 @@ const CarTable = ({ carTableData }) => {
           "& .MuiDataGrid-columnHeaderTitle": {
             fontWeight: "bold",
           },
-          width: "100%",
+          "& .MuiDataGrid-row:nth-of-type(odd):hover": {
+            background: "lightgreen",
+          },
         }}
         onSelectionModelChange={(ids) => {
           console.log(ids);
