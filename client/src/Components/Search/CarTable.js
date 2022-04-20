@@ -227,6 +227,9 @@ const CarTable = ({ carTableData }) => {
           '& .MuiDataGrid-row:nth-of-type(odd)': {
             background: "#EDEDED",
           },
+          "& .MuiDataGrid-columnHeaderTitle": {
+            fontWeight: "bold",
+          },
           width: "100%",
         }}
         onSelectionModelChange={(ids) => {
