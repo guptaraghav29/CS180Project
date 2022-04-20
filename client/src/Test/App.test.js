@@ -1,11 +1,12 @@
-import { internal_resolveProps } from '@mui/utils';
-import React from 'react';
-import ReactDOM from 'react-dom'; 
-import App from '../App';
-import {render, screen, cleanup } from '@testing-library/react'
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import App from "../App";
+import { getQueriesForElement } from "@testing-library/react";
 
-it("renders without crashing", ()=>{
-    const div = document.createElement("div");
-    ReactDOM.render(<App />, div);
-    ReactDOM.unmountComponentAtNode(div);
+it("renders the content without any crashes", () => {
+  const root = document.createElement("root");
+  ReactDOM.render(<App />, root);
+  const { getByText } = getQueriesForElement(root);
+
+  expect(getByText("Used Car Dataset")).not.toBeNull();
 });
