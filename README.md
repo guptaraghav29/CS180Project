@@ -22,8 +22,10 @@ We will be using a used cars database and perform data analytics to do the folll
  
      $ cd server
      $ npm i --force
+     $ cd ..
      $ cd client
-     $ npm -i --force
+     $ npm i --force
+     $ cd ..
   
  > Start the back-end server
  
