@@ -15,6 +15,7 @@ function App() {
   const [modelYears, setModelYears] = useState([]);
   const [currentYear, setCurrentYear] = useState("");
   const [carTableData, setCarTableData] = useState([]);
+  const [currentSelection, setCurrentSelection] = useState([]);
 
   useEffect(() => {
     fetch("/cars")
@@ -91,8 +92,9 @@ function App() {
 
   return (
     <div className="flex flex-col items-center">
-      <div id="models"></div>
+      <div id="models" className="py-8">
       <NavBar />
+      </div>
       <h1 className="center text-4xl mb-6"> Used Car Dataset </h1>
       <div className="flex" href="models">
         <div className="py-2 px-2">
@@ -137,86 +139,15 @@ function App() {
         currentModel !== null &&
         currentYear !== "" &&
         currentYear !== null ? (
-          <div>
-            <CarTable carTableData={carTableData} />
+          <div className="px-10">
+            <CarTable carTableData={carTableData} currentSelection={currentSelection} setCurrentSelection={setCurrentSelection} />
           </div>
         ) : (
           <div></div>
         )}
       </div>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
 
-      <h1 className="center text-4xl mb-6"> Advanced Search </h1>
-      <div id="adv">
-        <NavBar />
-        <br />
-        <div>Test2</div>
-      </div>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-
-      <div id="prob">
-        <NavBar />
-        <br />
-        <div>Test</div>
-      </div>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
+      
     </div>
   );
 }
