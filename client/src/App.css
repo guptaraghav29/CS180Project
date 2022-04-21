@@ -11,6 +11,7 @@
 
 html,
 body {
+  scroll-behavior: smooth;
   padding: 2em;
   margin: 2px;
   text-align: center;

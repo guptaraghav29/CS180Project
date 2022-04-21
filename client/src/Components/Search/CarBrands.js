@@ -2,7 +2,12 @@ import React from "react";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 
-const CarBrands = ({ carCompanies, currentCompany, setCurrentCompany }) => {
+const CarBrands = ({
+  carCompanies,
+  currentCompany,
+  setCurrentCompany,
+  setCurrentModel,
+}) => {
   return (
     <div data-testid="car-brands">
       <Autocomplete
@@ -24,9 +29,15 @@ const CarBrands = ({ carCompanies, currentCompany, setCurrentCompany }) => {
         )}
         onInputChange={(event, userSelection) => {
           setCurrentCompany(userSelection);
+          if (userSelection !== currentCompany) {
+            setCurrentModel("");
+          }
         }}
         onChange={(event, userSelection) => {
           setCurrentCompany(userSelection);
+          if (userSelection !== currentCompany) {
+            setCurrentModel("");
+          }
         }}
         isOptionEqualToValue={(option, value) => option.id === value.id}
         autoComplete={true}
