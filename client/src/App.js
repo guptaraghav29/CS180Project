@@ -6,10 +6,6 @@ import CarYears from "./Components/Search/CarYears";
 import CarTable from "./Components/Search/CarTable";
 import NavBar from "./Components/NavBar/NavBar";
 
-
-
-
-
 function App() {
   const [carData, setCarData] = useState([]);
   const [carCompanies, setCarCompanies] = useState([]);
@@ -95,15 +91,16 @@ function App() {
 
   return (
     <div className="flex flex-col items-center">
-      <div id = "models"></div>
+      <div id="models"></div>
       <NavBar />
       <h1 className="center text-4xl mb-6"> Used Car Dataset </h1>
-      <div className="flex" href = "models">
+      <div className="flex" href="models">
         <div className="py-2 px-2">
           <CarBrands
             carCompanies={carCompanies}
             currentCompany={currentCompany}
             setCurrentCompany={setCurrentCompany}
+            setCurrentModel={setCurrentModel}
           />
         </div>
         <div className="py-2 px-2">
@@ -111,6 +108,7 @@ function App() {
             companyModels={companyModels}
             currentModel={currentModel}
             setCurrentModel={setCurrentModel}
+            setCurrentYear={setCurrentYear}
             style={{
               display:
                 currentCompany !== "" && currentCompany !== null
@@ -133,93 +131,92 @@ function App() {
       </div>
 
       <div className="py-8 w-full">
-      {currentCompany !== "" &&
-      currentCompany !== null &&
-      currentModel !== "" &&
-      currentModel !== null &&
-      currentYear !== "" &&
-      currentYear !== null ? (
-        <div>
-        <CarTable carTableData={carTableData} /> 
-         </div>
-      ) : (
-        <div></div>
-      )}
+        {currentCompany !== "" &&
+        currentCompany !== null &&
+        currentModel !== "" &&
+        currentModel !== null &&
+        currentYear !== "" &&
+        currentYear !== null ? (
+          <div>
+            <CarTable carTableData={carTableData} />
+          </div>
+        ) : (
+          <div></div>
+        )}
       </div>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+
       <h1 className="center text-4xl mb-6"> Advanced Search </h1>
-      <div id = "adv">
+      <div id="adv">
         <NavBar />
-        <br/>
+        <br />
         <div>Test2</div>
       </div>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      
-      <div id = "prob">
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+
+      <div id="prob">
         <NavBar />
-        <br/>
+        <br />
         <div>Test</div>
       </div>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-      <br/>
-
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </div>
   );
 }
