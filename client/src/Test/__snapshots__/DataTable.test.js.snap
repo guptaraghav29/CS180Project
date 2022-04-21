@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`check 1`] = `
+<div
+  style={
+    Object {
+      "background": "#f9f9f9",
+      "height": 500,
+      "textAlign": "center",
+      "width": "100%",
+    }
+  }
+>
+  <div
+    aria-colcount={12}
+    aria-multiselectable={false}
+    aria-rowcount={0}
+    className="MuiDataGrid-root css-nj9o12-MuiDataGrid-root"
+    role="grid"
+  >
+    <div
+      className="MuiDataGrid-main css-204u17-MuiDataGrid-main"
+    >
+      <div
+        className="MuiDataGrid-overlay css-18rq0oa-MuiDataGrid-overlay"
+        error={[TypeError: Cannot set properties of null (setting 'scrollLeft')]}
+      >
+        An error occurred.
+      </div>
+    </div>
+  </div>
+</div>
+`;

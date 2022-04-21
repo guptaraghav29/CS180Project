@@ -1,8 +1,6 @@
 import * as React from "react";
 import { DataGrid } from "@mui/x-data-grid";
-
-//id,region,price,year,manufacturer,model,condition,odometer,title_status,type,paint_color,state,posting_date
-
+import DeleteButton from "../ChangeData/DeleteButton";
 const columns = [
   {
     field: "id",
@@ -12,6 +10,7 @@ const columns = [
     renderCell: (cellValues) => {
       return (
         <div
+          label="tabel"
           style={{
             width: "100%",
             textAlign: "center",
@@ -204,7 +203,7 @@ const columns = [
   },
 ];
 
-const CarTable = ({ carTableData }) => {
+const CarTable = ({ carTableData, currentSelection, setCurrentSelection }) => {
   return (
     <div
       style={{
@@ -238,8 +237,12 @@ const CarTable = ({ carTableData }) => {
           },
         }}
         onSelectionModelChange={(ids) => {
-          console.log(ids);
+          setCurrentSelection(ids);
         }}
+      />
+      <DeleteButton
+        currentSelection={currentSelection}
+        setCurrentSelection={setCurrentSelection}
       />
     </div>
   );

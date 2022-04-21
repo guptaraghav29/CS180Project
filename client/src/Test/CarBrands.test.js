@@ -7,7 +7,7 @@ import {
   getQueriesForElement,
   render,
 } from "@testing-library/react";
-p;
+
 it("renders therp content without any crashes", () => {
   const root = document.createElement("root");
   ReactDOM.render(<CarBrands />, root);

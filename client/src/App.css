@@ -12,10 +12,11 @@
 html,
 body {
   scroll-behavior: smooth;
-  padding: 2em;
-  margin: 2px;
+  padding: 0;
+  margin: 0;
   text-align: center;
   font-family: "Work Sans", sans-serif;
   font-size: 22px;
   /* overflow-y: scroll; */
+  box-sizing: porder-box;
 }
