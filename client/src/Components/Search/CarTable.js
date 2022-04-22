@@ -2,6 +2,7 @@ import * as React from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import DeleteButton from "../ChangeData/DeleteButton";
 import AddButton from "../ChangeData/AddButton";
+import SaveData from "../ChangeData/SaveData";
 
 const columns = [
   {
@@ -259,13 +260,18 @@ const CarTable = ({
           setCurrentSelection(ids);
         }}
       />
-      <div className="py-3 flex justify-end">
-        <AddButton carCompanies={carCompanies} fetchData={fetchData}/>
-        <DeleteButton
-          currentSelection={currentSelection}
-          setCurrentSelection={setCurrentSelection}
-          fetchData={fetchData}
-        />
+      <div className="py-3 flex justify-between">
+        <div>
+          <SaveData carTableData={carTableData} />
+        </div>
+        <div className="flex">
+          <AddButton carCompanies={carCompanies} fetchData={fetchData} />
+          <DeleteButton
+            currentSelection={currentSelection}
+            setCurrentSelection={setCurrentSelection}
+            fetchData={fetchData}
+          />
+        </div>
       </div>
     </div>
   );

@@ -7,6 +7,12 @@ const DeleteButton = ({ currentSelection, fetchData }) => {
     <div className="">
       <Button
         variant="contained"
+        sx={{
+          background: "#ff5552",
+          ':hover' : {
+              background: "#ff3733",
+          },
+        }}
         startIcon={<DeleteIcon />}
         onClick={() => {
           currentSelection.forEach((id) => {

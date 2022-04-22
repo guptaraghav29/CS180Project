@@ -8,7 +8,6 @@ import DialogTitle from "@mui/material/DialogTitle";
 import SendIcon from "@mui/icons-material/Send";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import CancelIcon from "@mui/icons-material/Cancel";
-import MenuItem from "@mui/material/MenuItem";
 
 const AddButton = ({ carCompanies, fetchData }) => {
   const [carBrand, setBrand] = useState("");
