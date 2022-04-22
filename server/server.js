@@ -2,13 +2,16 @@ const express = require("express");
 const app = express();
 const csv = require("csvtojson");
 const fs = require("fs");
-
 let carData = [];
+
 csv()
   .fromFile("data/vehicles.csv")
   .then((jsonObj) => {
     carData = jsonObj;
   });
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.delete("/cars/:id", (req, res) => {
   const { id } = req.params;
@@ -19,6 +22,11 @@ app.delete("/cars/:id", (req, res) => {
   } else {
     res.status(404).json({ message: `Car with ${id} not found.` });
   }
+});
+
+app.post("/cars/:id", (req, res) => {
+  carData.push(req.body);
+  res.status(200).json(req.body);
 });
 
 app.get("/cars", (req, res) => {
