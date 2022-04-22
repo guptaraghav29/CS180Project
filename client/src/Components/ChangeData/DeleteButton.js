@@ -2,20 +2,18 @@ import React from "react";
 import Button from "@mui/material/Button";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-const DeleteButton = (currentSelection, setCurrentSelection) => {
+const DeleteButton = ({ currentSelection, fetchData }) => {
   return (
     <div className="py-3 flex justify-end">
       <Button
         variant="contained"
         startIcon={<DeleteIcon />}
         onClick={() => {
-          currentSelection.currentSelection.forEach((id) => {
-            fetch(`/cars/${id}`)
-              .then((res) => res.json())
-              .then((data) => {
-                console.log(id);
-                console.log(data);
-              });
+          currentSelection.forEach((id) => {
+            console.log(id);
+            fetch(`/cars/${id}`, { method: "DELETE" }).then((res) => {
+              if (res.status === 200) fetchData(); // probably should check once if deleted then refresh once at the end very bad every refresh
+            });
           });
         }}
       >

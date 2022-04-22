@@ -18,6 +18,11 @@ function App() {
   const [currentSelection, setCurrentSelection] = useState([]);
 
   useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = () => {
+    console.log("FETCHING...");
     fetch("/cars")
       .then((response) => response.json())
       .then((data) => {
@@ -35,7 +40,7 @@ function App() {
         setCarCompanies(cars);
       })
       .catch((error) => console.log(error));
-  }, []);
+  };
 
   useEffect(() => {
     let carModels = [];
@@ -93,7 +98,7 @@ function App() {
   return (
     <div className="flex flex-col items-center">
       <div id="models" className="py-8">
-      <NavBar />
+        <NavBar />
       </div>
       <h1 className="center text-4xl mb-6"> Used Car Dataset </h1>
       <div className="flex" href="models">
@@ -140,14 +145,17 @@ function App() {
         currentYear !== "" &&
         currentYear !== null ? (
           <div className="px-10">
-            <CarTable carTableData={carTableData} currentSelection={currentSelection} setCurrentSelection={setCurrentSelection} />
+            <CarTable
+              carTableData={carTableData}
+              currentSelection={currentSelection}
+              setCurrentSelection={setCurrentSelection}
+              fetchData={fetchData}
+            />
           </div>
         ) : (
           <div></div>
         )}
       </div>
-
-      
     </div>
   );
 }

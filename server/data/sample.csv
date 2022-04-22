@@ -1,4 +1,4 @@
-﻿id,region,price,year,manufacturer,model,condition,odometer,title_status,type,paint_color,state,posting_date
+id,region,price,year,manufacturer,model,condition,odometer,title_status,type,paint_color,state,posting_date
 7314584291,auburn,31590,2019,cadillac,xt4 sport suv 4d,good,12102,clean,hatchback,black,al,2021-05-04T12:31:18-0500
 7314560853,auburn,19900,2004,ford,f250 super duty,good,88000,clean,pickup,blue,al,2021-05-04T12:31:08-0500
 7313857831,auburn,16590,2016,jeep,renegade sport suv 4d,good,35835,clean,other,red,al,2021-05-04T12:31:25-0500
@@ -10,6 +10,7 @@
 7313337060,auburn,25990,2019,ram,1500 classic regular cab,good,12302,clean,pickup,white,al,2021-05-03T11:31:14-0500
 7313319521,auburn,34990,2018,ford,mustang gt premium,good,18650,clean,other,black,al,2021-05-03T07:50:35-0500
 7312858079,auburn,27990,2017,chevrolet,colorado extended cab,good,22120,clean,pickup,,al,2021-05-03T07:38:05-0500
+7312858070,auburn,27990,2017,chevrolet,colorado extended cab,good,22120,clean,pickup,,al,2021-05-03T07:38:05-0500
 7312847466,auburn,22500,2001,ford,f450,good,144700,clean,truck,white,al,2021-05-02T12:22:10-0500
 7312824400,auburn,32990,2019,chevrolet,silverado 1500 ld,good,6897,clean,pickup,black,al,2021-05-02T10:51:08-0500
 7312799035,auburn,31990,2013,toyota,tundra double cab pickup,good,55068,clean,pickup,,al,2021-05-02T10:21:33-0500
