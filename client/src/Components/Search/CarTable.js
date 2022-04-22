@@ -203,7 +203,15 @@ const columns = [
   },
 ];
 
-const CarTable = ({ carTableData, currentSelection, setCurrentSelection }) => {
+const CarTable = ({
+  carTableData,
+  currentSelection,
+  setCurrentSelection,
+  fetchData,
+}) => {
+  const updateData = () => {
+    console.log("???");
+  };
   return (
     <div
       style={{
@@ -243,6 +251,7 @@ const CarTable = ({ carTableData, currentSelection, setCurrentSelection }) => {
       <DeleteButton
         currentSelection={currentSelection}
         setCurrentSelection={setCurrentSelection}
+        fetchData={fetchData}
       />
     </div>
   );
