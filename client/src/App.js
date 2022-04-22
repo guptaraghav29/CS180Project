@@ -143,7 +143,7 @@ function App() {
         currentModel !== null &&
         currentYear !== "" &&
         currentYear !== null ? (
-          <div className="px-10">
+          <div className="px-8">
             <CarTable
               carTableData={carTableData}
               carCompanies={carCompanies}
