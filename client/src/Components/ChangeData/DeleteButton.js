@@ -4,7 +4,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 
 const DeleteButton = ({ currentSelection, fetchData }) => {
   return (
-    <div className="py-3 flex justify-end">
+    <div className="">
       <Button
         variant="contained"
         startIcon={<DeleteIcon />}

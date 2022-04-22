@@ -1,12 +1,15 @@
 import * as React from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import DeleteButton from "../ChangeData/DeleteButton";
+import AddButton from "../ChangeData/AddButton";
+
 const columns = [
   {
     field: "id",
     headerName: "ID",
     headerAlign: "center",
     flex: 1,
+    editable: true,
     renderCell: (cellValues) => {
       return (
         <div
@@ -26,6 +29,7 @@ const columns = [
     headerName: "Brand",
     headerAlign: "center",
     flex: 1,
+    editable: true,
     renderCell: (cellValues) => {
       return (
         <div
@@ -44,6 +48,7 @@ const columns = [
     headerName: "Model",
     headerAlign: "center",
     flex: 1,
+    editable: true,
     renderCell: (cellValues) => {
       return (
         <div
@@ -62,6 +67,7 @@ const columns = [
     headerName: "Year",
     headerAlign: "center",
     flex: 1,
+    editable: true,
     renderCell: (cellValues) => {
       return (
         <div
@@ -80,6 +86,7 @@ const columns = [
     headerName: "Price",
     headerAlign: "center",
     flex: 1,
+    editable: true,
     renderCell: (cellValues) => {
       return (
         <div
@@ -98,6 +105,7 @@ const columns = [
     headerName: "Odometer",
     headerAlign: "center",
     flex: 1,
+    editable: true,
     renderCell: (cellValues) => {
       return (
         <div
@@ -116,6 +124,7 @@ const columns = [
     headerName: "Status",
     headerAlign: "center",
     flex: 1,
+    editable: true,
     renderCell: (cellValues) => {
       return (
         <div
@@ -134,6 +143,7 @@ const columns = [
     headerName: "Color",
     headerAlign: "center",
     flex: 1,
+    editable: true,
     renderCell: (cellValues) => {
       return (
         <div
@@ -152,6 +162,7 @@ const columns = [
     headerName: "Region",
     headerAlign: "center",
     flex: 1,
+    editable: true,
     renderCell: (cellValues) => {
       return (
         <div
@@ -170,6 +181,7 @@ const columns = [
     headerName: "State",
     headerAlign: "center",
     flex: 1,
+    editable: true,
     renderCell: (cellValues) => {
       return (
         <div
@@ -188,6 +200,7 @@ const columns = [
     headerName: "Date Listed",
     headerAlign: "center",
     flex: 1,
+    editable: true,
     renderCell: (cellValues) => {
       return (
         <div
@@ -209,9 +222,6 @@ const CarTable = ({
   setCurrentSelection,
   fetchData,
 }) => {
-  const updateData = () => {
-    console.log("???");
-  };
   return (
     <div
       style={{
@@ -248,11 +258,14 @@ const CarTable = ({
           setCurrentSelection(ids);
         }}
       />
-      <DeleteButton
-        currentSelection={currentSelection}
-        setCurrentSelection={setCurrentSelection}
-        fetchData={fetchData}
-      />
+      <div className="py-3 flex justify-end">
+        <AddButton />
+        <DeleteButton
+          currentSelection={currentSelection}
+          setCurrentSelection={setCurrentSelection}
+          fetchData={fetchData}
+        />
+      </div>
     </div>
   );
 };
