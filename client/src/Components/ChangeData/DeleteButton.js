@@ -10,7 +10,6 @@ const DeleteButton = ({ currentSelection, fetchData }) => {
         startIcon={<DeleteIcon />}
         onClick={() => {
           currentSelection.forEach((id) => {
-            console.log(id);
             fetch(`/cars/${id}`, { method: "DELETE" }).then((res) => {
               if (res.status === 200) fetchData(); // probably should check once if deleted then refresh once at the end very bad every refresh
             });

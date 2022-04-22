@@ -24,7 +24,6 @@ function App() {
   }, []);
 
   const fetchData = () => {
-    console.log("FETCHING...");
     fetch("/cars")
       .then((response) => response.json())
       .then((data) => {
@@ -178,6 +177,7 @@ function App() {
           <div className="px-10">
             <CarTable
               carTableData={carTableData}
+              carCompanies={carCompanies}
               currentSelection={currentSelection}
               setCurrentSelection={setCurrentSelection}
               fetchData={fetchData}

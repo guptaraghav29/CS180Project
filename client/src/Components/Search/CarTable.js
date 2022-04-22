@@ -219,6 +219,7 @@ const columns = [
 
 const CarTable = ({
   carTableData,
+  carCompanies,
   currentSelection,
   setCurrentSelection,
   fetchData,
@@ -262,8 +263,7 @@ const CarTable = ({
       />
       <div className="py-3 flex justify-end">
         <SaveData carTableData={carTableData}/>
-        <AddButton />
-        
+        <AddButton carCompanies={carCompanies} fetchData={fetchData}/>
         <DeleteButton
           currentSelection={currentSelection}
           setCurrentSelection={setCurrentSelection}
