@@ -5,6 +5,8 @@ import CarModels from "./Components/Search/CarModels";
 import CarYears from "./Components/Search/CarYears";
 import CarTable from "./Components/Search/CarTable";
 import NavBar from "./Components/NavBar/NavBar";
+import { CSVLink } from "react-csv";
+import SaveData from "./Components/ChangeData/SaveData";
 
 function App() {
   const [carData, setCarData] = useState([]);
@@ -40,6 +42,13 @@ function App() {
         setCarCompanies(cars);
       })
       .catch((error) => console.log(error));
+  };
+
+  const saveData=() => {
+    fetch("/savedata").then((res) => {
+      console.log(res.status); // probably should check once if deleted then refresh once at the end very bad every refresh
+    })
+
   };
 
   useEffect(() => {
@@ -94,6 +103,28 @@ function App() {
     });
     setCarTableData(carTable);
   }, [carData, currentCompany, currentModel, currentYear]);
+
+
+
+  const headers =  [
+    { label: 'ID', key: 'id' },
+    { label: 'Brand', key: 'manufacturer' },
+    { label: 'Model', key: 'model' },
+    { label: 'Year', key: 'year' },
+    { label: 'Price', key: 'price' },
+    { label: 'Odometer', key: 'odometer' },
+    { label: 'Status', key: 'title_status' },
+    { label: 'Color', key: 'paint_color' },
+    { label: 'Region', key: 'region' },
+    { label: 'State', key: 'state' },
+    { label: 'Date Listed', key: 'posting_date' }
+  ];
+
+  const csvReport = {
+    filename: "Result.csv",
+    headers: headers,
+    data: carTableData
+  };
 
   return (
     <div className="flex flex-col items-center">
@@ -150,11 +181,17 @@ function App() {
               currentSelection={currentSelection}
               setCurrentSelection={setCurrentSelection}
               fetchData={fetchData}
+              saveData = {saveData}
             />
           </div>
+          
         ) : (
-          <div></div>
+          <div>
+          </div>
         )}
+        <div>
+            
+        </div>
       </div>
     </div>
   );
