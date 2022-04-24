@@ -18,5 +18,5 @@ body {
   font-family: "Work Sans", sans-serif;
   font-size: 22px;
   /* overflow-y: scroll; */
-  box-sizing: porder-box;
+  box-sizing: border-box;
 }
