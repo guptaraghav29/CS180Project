@@ -45,8 +45,7 @@ function App() {
     carData.forEach((car) => {
       if (
         car.manufacturer === currentCompany &&
-        carModels.indexOf(car.model) === -1 &&
-        car.model.length > 0
+        carModels.indexOf(car.model) === -1
       ) {
         carModels.push(car.model);
       }

@@ -1,62 +1,19 @@
-id,region,price,year,sample,model,condition,odometer,title_status,type,paint_color,state,posting_date
-7314584291,auburn,31590,2019,cadillac,xt4 sport suv 4d,good,12102,clean,hatchback,black,al,2021-05-04T12:31:18-0500
-7314560853,auburn,19900,2004,ford,f250 super duty,good,88000,clean,pickup,blue,al,2021-05-04T12:31:08-0500
-7313857831,auburn,16590,2016,jeep,renegade sport suv 4d,good,35835,clean,other,red,al,2021-05-04T12:31:25-0500
-7313857767,auburn,26990,2016,ford,f150 regular cab xl pickup,good,14230,clean,pickup,black,al,2021-05-04T10:41:31-0500
-7313857701,auburn,25590,2015,gmc,sierra 1500 regular cab,good,35290,clean,pickup,white,al,2021-05-03T14:02:03-0500
-7313406529,auburn,14000,2012,honda,odyssey,excellent,95000,clean,mini-van,silver,al,2021-05-03T13:41:25-0500
-7313387888,auburn,28590,2018,ram,1500 quad cab express pickup,good,30047,clean,pickup,white,al,2021-05-03T12:41:33-0500
-7313387902,auburn,24590,2013,gmc,sierra 1500 extended cab slt,good,80318,clean,pickup,,al,2021-05-03T12:12:59-0500
-7313337060,auburn,25990,2019,ram,1500 classic regular cab,good,12302,clean,pickup,white,al,2021-05-03T11:31:14-0500
-7313319521,auburn,34990,2018,ford,mustang gt premium,good,18650,clean,other,black,al,2021-05-03T07:50:35-0500
-7312858079,auburn,27990,2017,chevrolet,colorado extended cab,good,22120,clean,pickup,,al,2021-05-03T07:38:05-0500
-7312858070,auburn,27990,2017,chevrolet,colorado extended cab,good,22120,clean,pickup,,al,2021-05-03T07:38:05-0500
-7312847466,auburn,22500,2001,ford,f450,good,144700,clean,truck,white,al,2021-05-02T12:22:10-0500
-7312824400,auburn,32990,2019,chevrolet,silverado 1500 ld,good,6897,clean,pickup,black,al,2021-05-02T10:51:08-0500
-7312799035,auburn,31990,2013,toyota,tundra double cab pickup,good,55068,clean,pickup,,al,2021-05-02T10:21:33-0500
-7312754093,auburn,29990,2014,chevrolet,silverado 1500 double,good,26129,clean,pickup,brown,al,2021-05-02T08:44:35-0500
-7312342653,auburn,23990,2016,chevrolet,silverado 1500 regular,good,41568,clean,pickup,white,al,2021-05-01T12:21:51-0500
-7312342811,auburn,22990,2012,toyota,tacoma access cab pickup,good,37725,clean,pickup,white,al,2021-05-01T09:21:37-0500
-7312337810,auburn,26990,2014,chevrolet,silverado 1500 crew,good,63129,clean,pickup,black,al,2021-05-01T09:21:34-0500
-7312313815,auburn,33990,2017,jeep,wrangler unlimited sahara,good,34152,clean,SUV,white,al,2021-05-01T09:11:35-0500
-7312144944,auburn,15000,2017,dodge,charger rt 4dr sedan,excellent,90000,rebuilt,sedan,grey,al,2021-04-30T16:35:11-0500
-7311960895,auburn,26590,2020,honda,civic si coupe 2d,good,9954,clean,coupe,silver,al,2021-04-30T12:51:31-0500
-7311818339,auburn,18590,2018,honda,civic lx sedan 4d,good,28942,clean,sedan,white,al,2021-04-30T11:21:17-0500
-7311818189,auburn,29590,2017,ford,expedition xlt sport,good,70760,clean,SUV,blue,al,2021-04-30T10:11:01-0500
-7311818157,auburn,21590,2018,honda,civic ex sedan 4d,good,7885,clean,sedan,,al,2021-04-30T10:11:00-0500
-7311409434,auburn,22590,2013,ford,f150 super cab xl pickup 4d,good,14169,clean,pickup,silver,al,2021-04-29T18:11:08-0500
-7311351407,auburn,33990,2020,jeep,wrangler sport suv 2d,good,9859,clean,other,,al,2021-04-29T18:11:10-0500
-7311327726,auburn,29990,2012,toyota,tacoma double cab pickup,good,43182,clean,pickup,white,al,2021-04-29T18:11:11-0500
-7311310782,auburn,37590,2019,ford,f150 supercrew cab xl,good,8663,clean,pickup,,al,2021-04-29T18:11:08-0500
-7310905283,auburn,25990,2015,lexus,nx 300h sport utility 4d,good,55783,clean,hatchback,white,al,2021-04-29T17:19:18-0500
-7310848060,auburn,32990,2018,jaguar,e-pace p250 s sport,good,26685,clean,other,white,al,2021-04-28T11:01:17-0500
-7310803539,auburn,28990,2020,buick,encore gx essence sport,good,21,clean,other,white,al,2021-04-28T11:01:11-0500
-7310798664,auburn,34990,2020,lexus,nx 300 sport utility 4d,good,1722,clean,hatchback,black,al,2021-04-28T11:01:06-0500
-7310644616,auburn,3000,2004,chrysler,town & country,good,176144,clean,mini-van,silver,al,2021-04-27T12:20:01-0500
-7310383361,auburn,22590,2016,volvo,s60 t5 cross country,good,42755,clean,sedan,,al,2021-04-27T11:51:04-0500
-7310332383,auburn,36990,2019,volvo,s60 t6 inscription sedan,good,8141,clean,sedan,white,al,2021-04-27T11:51:05-0500
-7310308166,auburn,31990,2020,volvo,s60 t5 momentum sedan 4d,good,16594,clean,sedan,,al,2021-04-27T10:31:18-0500
-7310276274,auburn,28590,2019,volvo,s60 t5 momentum sedan 4d,good,18531,clean,sedan,black,al,2021-04-27T10:01:24-0500
-7309876037,auburn,31990,2018,audi,q5 premium sport utility 4d,good,19179,clean,other,,al,2021-04-26T11:30:49-0500
-7309828117,auburn,19990,2015,infiniti,qx60 3.5 sport utility,good,96003,clean,SUV,silver,al,2021-04-26T11:15:36-0500
-7309827921,auburn,29590,2017,lincoln,continental select sedan,good,35320,clean,sedan,black,al,2021-04-26T10:41:03-0500
-7309828053,auburn,29990,2018,alfa-romeo,romeo stelvio ti sport,good,26978,clean,hatchback,,al,2021-04-26T10:01:19-0500
-7309798041,auburn,2100,2006,subaru,impreza,fair,97000,clean,hatchback,,al,2021-04-26T08:42:39-0500
-7309361405,auburn,80,2004,honda,,excellent,94020,clean,,,al,2021-04-25T10:41:14-0500
-7309271279,auburn,15990,2016,,Scion iM Hatchback 4D,good,29652,clean,hatchback,blue,al,2021-04-25T10:41:29-0500
-7309271051,auburn,20590,2013,acura,mdx sport utility 4d,good,77087,clean,other,silver,al,2021-04-25T10:31:15-0500
-7309229548,auburn,29590,2018,audi,a6 2.0t premium sedan 4d,good,13035,clean,sedan,,al,2021-04-25T09:41:09-0500
-7309192232,auburn,16590,2015,hyundai,sonata sport sedan 4d,good,26655,clean,sedan,white,al,2021-04-24T18:39:59-0500
-7309160821,auburn,12990,1968,volvo,,,99999,clean,,,al,2021-04-24T12:50:58-0500
-7308779719,auburn,33990,2017,ram,1500 crew cab tradesman,good,17033,clean,pickup,blue,al,2021-04-24T08:52:24-0500
-7308779686,auburn,36590,2019,gmc,sierra 1500 limited double,good,14222,clean,pickup,blue,al,2021-04-24T08:52:07-0500
-7308745779,auburn,29590,2013,gmc,sierra 1500 extended cab slt,good,37888,clean,pickup,silver,al,2021-04-24T08:52:03-0500
-7308730136,auburn,40590,2019,ford,f250 super duty regular cab,good,9313,clean,pickup,white,al,2021-04-23T11:41:07-0500
-7308365829,auburn,33990,2018,jeep,wrangler unlimited willys,good,34636,clean,other,white,al,2021-04-23T10:10:54-0500
-7308255063,auburn,43990,2019,jeep,wrangler unlimited sahara,good,4362,clean,SUV,black,al,2021-04-23T09:30:51-0500
-7308217002,auburn,38990,2017,jeep,wrangler unlimited rubicon,good,20676,clean,other,red,al,2021-04-23T09:01:04-0500
-7308216849,auburn,39590,2018,jeep,wrangler unlimited all new,good,21893,clean,SUV,silver,al,2021-04-22T11:51:00-0500
-7307730503,auburn,9500,2003,chrysler,town & country,excellent,30376,clean,mini-van,blue,al,2021-04-22T10:21:14-0500
-7307218858,auburn,28590,2018,gmc,acadia sle-2 sport utility,good,20736,clean,SUV,white,al,2021-04-22T09:01:26-0500
-7307164168,auburn,16590,2013,lincoln,mkz sedan 4d,good,61087,clean,sedan,red,al,2021-04-22T08:51:28-0500
-7307164193,auburn,28990,2017,gmc,acadia slt-1 sport utility,good,18041,clean,SUV,,al,2021-04-21T19:26:56-0500
+id,manufacturer,model,year,price,condition,odometer,title_status,paint_color,region,state,posting_date
+7316814884,gmc,sierra 1500 crew cab slt,2014,33590,good,57923,clean,white,auburn,al,5/4/2021
+7316814758,chevrolet,silverado 1500,2010,22590,good,71229,clean,blue,auburn,al,5/4/2021
+7316814989,chevrolet,silverado 1500 crew,2020,39590,good,19160,clean,red,auburn,al,5/4/2021
+7316743432,toyota,tundra double cab sr,2017,30990,good,41124,clean,red,auburn,al,5/4/2021
+7316356412,ford,f-150 xlt,2013,15000,excellent,128000,clean,black,auburn,al,5/3/2021
+7316343444,gmc,sierra 2500 hd extended cab,2012,27990,good,68696,clean,black,auburn,al,5/3/2021
+7316304717,chevrolet,silverado 1500 double,2016,34590,good,29499,clean,silver,auburn,al,5/3/2021
+7316285779,toyota,tacoma,2019,35000,excellent,43000,clean,grey,auburn,al,5/3/2021
+7316257769,chevrolet,colorado extended cab,2016,29990,good,17302,clean,red,auburn,al,5/3/2021
+7316133914,chevrolet,corvette grand sport,2011,38590,good,30237,clean,red,auburn,al,5/3/2021
+7315816316,jeep,wrangler unlimited sport,2017,32990,good,30041,clean,silver,auburn,al,5/2/2021
+7315770394,chevrolet,silverado 1500 regular,2017,24590,good,40784,clean,white,auburn,al,5/2/2021
+7315756348,chevrolet,colorado crew cab z71,2016,30990,good,34940,clean,blue,auburn,al,5/2/2021
+7315715960,toyota,tacoma access cab pickup,2014,27990,good,17805,clean,red,auburn,al,5/2/2021
+7315379459,chevrolet,camaro ss coupe 2d,2016,37990,good,9704,clean,red,auburn,al,5/1/2021
+7315275975,toyota,tundra crewmax sr5 pickup,2014,33590,good,55251,clean,red,auburn,al,5/1/2021
+7315275942,ford,ranger supercrew xl pickup,2019,30990,good,1834,clean,black,auburn,al,5/1/2021
+7315270785,nissan,frontier crew cab pro-4x,2018,27990,good,37332,clean,silver,auburn,al,5/1/2021
