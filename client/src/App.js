@@ -29,8 +29,7 @@ function App() {
         let cars = [];
         data.forEach((car) => {
           if (
-            cars.indexOf(car.manufacturer) === -1 &&
-            car.manufacturer.length > 0
+            cars.indexOf(car.manufacturer) === -1
           ) {
             cars.push(car.manufacturer);
           }
