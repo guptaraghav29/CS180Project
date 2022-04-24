@@ -8,8 +8,70 @@ import DialogTitle from "@mui/material/DialogTitle";
 import SendIcon from "@mui/icons-material/Send";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import CancelIcon from "@mui/icons-material/Cancel";
+import InputAdornment from "@mui/material/InputAdornment";
 
 const AddButton = ({ carCompanies, fetchData }) => {
+  const stateSelection = [
+    "AL",
+    "AK",
+    "AS",
+    "AZ",
+    "AR",
+    "CA",
+    "CO",
+    "CT",
+    "DE",
+    "DC",
+    "FM",
+    "FL",
+    "GA",
+    "GU",
+    "HI",
+    "ID",
+    "IL",
+    "IN",
+    "IA",
+    "KS",
+    "KY",
+    "LA",
+    "ME",
+    "MH",
+    "MD",
+    "MA",
+    "MI",
+    "MN",
+    "MS",
+    "MO",
+    "MT",
+    "NE",
+    "NV",
+    "NH",
+    "NJ",
+    "NM",
+    "NY",
+    "NC",
+    "ND",
+    "MP",
+    "OH",
+    "OK",
+    "OR",
+    "PW",
+    "PA",
+    "PR",
+    "RI",
+    "SC",
+    "SD",
+    "TN",
+    "TX",
+    "UT",
+    "VT",
+    "VI",
+    "VA",
+    "WA",
+    "WV",
+    "WI",
+    "WY",
+  ];
   const [carBrand, setBrand] = useState("");
   const [carModel, setModel] = useState("");
   const [carYear, setYear] = useState("");
@@ -29,6 +91,20 @@ const AddButton = ({ carCompanies, fetchData }) => {
 
   const handleClose = () => {
     setOpen(false);
+    clearInputs();
+  };
+
+  const clearInputs = () => {
+    setBrand("");
+    setModel("");
+    setYear("");
+    setPrice("");
+    setOdometer("");
+    setStatus("");
+    setColor("");
+    setRegion("");
+    setState("");
+    setDate("");
   };
 
   const handleSubmit = () => {
@@ -37,8 +113,8 @@ const AddButton = ({ carCompanies, fetchData }) => {
     fetch(`/cars/${id}`, {
       method: "POST",
       headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
+        Accept: "application/json",
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         id: id.toString(10),
@@ -54,13 +130,13 @@ const AddButton = ({ carCompanies, fetchData }) => {
         paint_color: carColor,
         state: carState,
         posting_date: carDate,
-     })
-    })
-    .then((res) => {
-      if (res.status == 200) {
+      }),
+    }).then((res) => {
+      if (parseInt(res.status) === 200) {
         fetchData();
       }
     });
+    clearInputs();
   };
 
   return (
@@ -76,7 +152,9 @@ const AddButton = ({ carCompanies, fetchData }) => {
         Add Data
       </Button>
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Add Car</DialogTitle>
+        <DialogTitle sx={{ fontWeight: 500, color: "gray" }}>
+          Enter car details below
+        </DialogTitle>
         <DialogContent>
           <TextField
             required
@@ -91,6 +169,17 @@ const AddButton = ({ carCompanies, fetchData }) => {
             onChange={(event) => {
               setBrand(event.target.value);
             }}
+            sx={{
+              "& .MuiOutlinedInput-notchedOutline": {
+                boxShadow: 1,
+                borderRadius: "24px",
+              },
+            }}
+            inputProps={{
+              ":hover": {
+                border: "2px solid white",
+              },
+            }}
           />
           <TextField
             required
@@ -104,6 +193,12 @@ const AddButton = ({ carCompanies, fetchData }) => {
             onChange={(event) => {
               setModel(event.target.value);
             }}
+            sx={{
+              "& .MuiOutlinedInput-notchedOutline": {
+                boxShadow: 1,
+                borderRadius: "24px",
+              },
+            }}
           />
           <TextField
             required
@@ -116,6 +211,12 @@ const AddButton = ({ carCompanies, fetchData }) => {
             value={carYear}
             onChange={(event) => {
               setYear(event.target.value);
+            }}
+            sx={{
+              "& .MuiOutlinedInput-notchedOutline": {
+                boxShadow: 1,
+                borderRadius: "24px",
+              },
             }}
           />
 
@@ -131,6 +232,17 @@ const AddButton = ({ carCompanies, fetchData }) => {
             onChange={(event) => {
               setPrice(event.target.value);
             }}
+            sx={{
+              "& .MuiOutlinedInput-notchedOutline": {
+                boxShadow: 1,
+                borderRadius: "24px",
+              },
+            }}
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">$</InputAdornment>
+              ),
+            }}
           />
           <TextField
             required
@@ -143,6 +255,17 @@ const AddButton = ({ carCompanies, fetchData }) => {
             value={carOdometer}
             onChange={(event) => {
               setOdometer(event.target.value);
+            }}
+            sx={{
+              "& .MuiOutlinedInput-notchedOutline": {
+                boxShadow: 1,
+                borderRadius: "24px",
+              },
+            }}
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">miles</InputAdornment>
+              ),
             }}
           />
           <TextField
@@ -157,6 +280,12 @@ const AddButton = ({ carCompanies, fetchData }) => {
             onChange={(event) => {
               setStatus(event.target.value);
             }}
+            sx={{
+              "& .MuiOutlinedInput-notchedOutline": {
+                boxShadow: 1,
+                borderRadius: "24px",
+              },
+            }}
           />
           <TextField
             required
@@ -168,6 +297,12 @@ const AddButton = ({ carCompanies, fetchData }) => {
             value={carColor}
             onChange={(event) => {
               setColor(event.target.value);
+            }}
+            sx={{
+              "& .MuiOutlinedInput-notchedOutline": {
+                boxShadow: 1,
+                borderRadius: "24px",
+              },
             }}
           />
           <TextField
@@ -182,9 +317,16 @@ const AddButton = ({ carCompanies, fetchData }) => {
             onChange={(event) => {
               setRegion(event.target.value);
             }}
+            sx={{
+              "& .MuiOutlinedInput-notchedOutline": {
+                boxShadow: 1,
+                borderRadius: "24px",
+              },
+            }}
           />
           <TextField
             required
+            select
             margin="dense"
             id="state"
             label="State"
@@ -194,6 +336,12 @@ const AddButton = ({ carCompanies, fetchData }) => {
             value={carState}
             onChange={(event) => {
               setState(event.target.value);
+            }}
+            sx={{
+              "& .MuiOutlinedInput-notchedOutline": {
+                boxShadow: 1,
+                borderRadius: "24px",
+              },
             }}
           />
           <TextField
@@ -206,6 +354,13 @@ const AddButton = ({ carCompanies, fetchData }) => {
             value={carDate}
             onChange={(event) => {
               setDate(event.target.value);
+            }}
+            sx={{
+              "& .MuiOutlinedInput-notchedOutline": {
+                boxShadow: 1,
+                borderRadius: "24px",
+                color: "red",
+              },
             }}
           />
         </DialogContent>

@@ -84,7 +84,7 @@ function App() {
           year: car.year,
           price: car.price,
           odometer: car.odometer,
-          title_status: car.title_status.toUpperCase(),
+          title_status: car.title_status,
           paint_color: car.paint_color,
           state: car.state.toUpperCase(),
           posting_date: car.posting_date.substr(0, 10),
