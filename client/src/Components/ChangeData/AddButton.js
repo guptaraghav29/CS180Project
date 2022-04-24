@@ -133,9 +133,8 @@ const AddButton = ({ carCompanies, fetchData }) => {
         manufacturer: carBrand,
         model: carModel,
         condition: carState,
-        odoemeter: carOdometer,
+        odometer: carOdometer,
         title_status: carStatus,
-        type: "",
         paint_color: carColor,
         state: carState,
         posting_date: carDate,
@@ -168,254 +167,248 @@ const AddButton = ({ carCompanies, fetchData }) => {
         <DialogTitle sx={{ fontWeight: 500, color: "gray" }}>
           Enter car details below
         </DialogTitle>
-        <form>
-          <DialogContent>
-            <TextField
-              required
-              autoFocus
-              margin="dense"
-              id="brand"
-              label="Brand"
-              type="Brand"
-              variant="outlined"
-              fullWidth
-              value={carBrand}
-              onChange={(event) => {
-                setBrand(event.target.value);
-              }}
-              sx={{
-                "& .MuiOutlinedInput-notchedOutline": {
-                  boxShadow: 1,
-                  borderRadius: "24px",
-                },
-              }}
-              inputProps={{
-                ":hover": {
-                  border: "2px solid white",
-                },
-              }}
-            />
-            <TextField
-              required
-              margin="dense"
-              id="model"
-              label="Model"
-              type="Model"
-              variant="outlined"
-              fullWidth
-              value={carModel}
-              onChange={(event) => {
-                setModel(event.target.value);
-              }}
-              sx={{
-                "& .MuiOutlinedInput-notchedOutline": {
-                  boxShadow: 1,
-                  borderRadius: "24px",
-                },
-              }}
-            />
-            <TextField
-              required
-              margin="dense"
-              id="year"
-              label="Year"
-              type="Year"
-              variant="outlined"
-              value={carYear}
-              onChange={(event) => {
-                setYear(event.target.value);
-              }}
-              sx={{
-                "& .MuiOutlinedInput-notchedOutline": {
-                  boxShadow: 1,
-                  borderRadius: "24px",
-                },
-                width: "29%",
-                marginRight: 2,
-              }}
-            />
+        <DialogContent>
+          <TextField
+            required
+            autoFocus
+            margin="dense"
+            id="brand"
+            label="Brand"
+            type="Brand"
+            variant="outlined"
+            fullWidth
+            value={carBrand}
+            onChange={(event) => {
+              setBrand(event.target.value);
+            }}
+            sx={{
+              "& .MuiOutlinedInput-notchedOutline": {
+                boxShadow: 1,
+                borderRadius: "24px",
+              },
+            }}
+            inputProps={{
+              ":hover": {
+                border: "2px solid white",
+              },
+            }}
+          />
+          <TextField
+            required
+            margin="dense"
+            id="model"
+            label="Model"
+            type="Model"
+            variant="outlined"
+            fullWidth
+            value={carModel}
+            onChange={(event) => {
+              setModel(event.target.value);
+            }}
+            sx={{
+              "& .MuiOutlinedInput-notchedOutline": {
+                boxShadow: 1,
+                borderRadius: "24px",
+              },
+            }}
+          />
+          <TextField
+            required
+            margin="dense"
+            id="year"
+            label="Year"
+            type="Year"
+            variant="outlined"
+            value={carYear}
+            onChange={(event) => {
+              setYear(event.target.value);
+            }}
+            sx={{
+              "& .MuiOutlinedInput-notchedOutline": {
+                boxShadow: 1,
+                borderRadius: "24px",
+              },
+              width: "29%",
+              marginRight: 2,
+            }}
+          />
 
-            <TextField
-              required
-              margin="dense"
-              id="price"
-              label="Price"
-              type="Number"
-              variant="outlined"
-              value={carPrice}
-              onChange={(event) => {
-                setPrice(event.target.value);
-              }}
-              sx={{
-                "& .MuiOutlinedInput-notchedOutline": {
-                  boxShadow: 1,
-                  borderRadius: "24px",
-                },
-                width: "32%",
-              }}
-              InputProps={{
-                endAdornment: <InputAdornment position="end">$</InputAdornment>,
-              }}
-            />
-            <TextField
-              required
-              margin="dense"
-              id="odometer"
-              label="Odometer"
-              type="Number"
-              variant="outlined"
-              value={carOdometer}
-              onChange={(event) => {
-                setOdometer(event.target.value);
-              }}
-              sx={{
-                "& .MuiOutlinedInput-notchedOutline": {
-                  boxShadow: 1,
-                  borderRadius: "24px",
-                },
-                width: "33%",
-                marginLeft: 2,
-              }}
-              InputProps={{
-                endAdornment: (
-                  <InputAdornment position="end">mil</InputAdornment>
-                ),
-              }}
-            />
-            <TextField
-              required
-              margin="dense"
-              id="status"
-              label="Status"
-              type="Status"
-              variant="outlined"
-              value={carStatus}
-              onChange={(event) => {
-                setStatus(event.target.value);
-              }}
-              sx={{
-                "& .MuiOutlinedInput-notchedOutline": {
-                  boxShadow: 1,
-                  borderRadius: "24px",
-                },
-                width: "48.5%",
-                marginRight: 1,
-              }}
-            />
-            <TextField
-              required
-              margin="dense"
-              id="color"
-              label="Color"
-              variant="outlined"
-              value={carColor}
-              onChange={(event) => {
-                setColor(event.target.value);
-              }}
-              sx={{
-                "& .MuiOutlinedInput-notchedOutline": {
-                  boxShadow: 1,
-                  borderRadius: "24px",
-                },
-                width: "48.5%",
-                marginLeft: 1,
-              }}
-            />
-            <TextField
-              required
-              margin="dense"
-              id="region"
-              label="Region"
-              type="Region"
-              variant="outlined"
-              fullWidth
-              value={carRegion}
-              onChange={(event) => {
-                setRegion(event.target.value);
-              }}
-              sx={{
-                "& .MuiOutlinedInput-notchedOutline": {
-                  boxShadow: 1,
-                  borderRadius: "24px",
-                },
-              }}
-            />
-            <TextField
-              required
-              select
-              margin="dense"
-              id="state"
-              label="State"
-              type="State"
-              variant="outlined"
-              value={carState}
-              onChange={(event) => {
-                setState(event.target.value);
-              }}
-              sx={{
-                "& .MuiOutlinedInput-notchedOutline": {
-                  boxShadow: 1,
-                  borderRadius: "24px",
-                },
-                width: "48.5%",
-                marginRight: 1,
-                textAlgin: "left",
-              }}
-            >
-              {states.map((option) => (
-                <MenuItem key={option} value={option}>
-                  {option}
-                </MenuItem>
-              ))}
-            </TextField>
-            <TextField
-              required
-              margin="dense"
-              id="date"
-              type="Date"
-              variant="outlined"
-              value={carDate}
-              onChange={(event) => {
-                setDate(event.target.value);
-              }}
-              sx={{
-                "& .MuiOutlinedInput-notchedOutline": {
-                  boxShadow: 1,
-                  borderRadius: "24px",
-                  color: "red",
-                },
-                width: "48.5%",
-                marginLeft: 1,
-              }}
-            />
-          </DialogContent>
-          <DialogActions>
-            <Button
-              variant="contained"
-              onClick={handleClose}
-              sx={{
-                background: "#ff5552",
-                ":hover": {
-                  background: "#ff3733",
-                },
-              }}
-              startIcon={<CancelIcon />}
-            >
-              Cancel
-            </Button>
-            <Button
-              type="submit"
-              onClick={() => {
-                useRef.current.reportValidity();
-                handleClose();
-              }}
-              variant="contained"
-              startIcon={<AddCircleIcon />}
-            >
-              Add
-            </Button>
-          </DialogActions>
-        </form>
+          <TextField
+            required
+            margin="dense"
+            id="price"
+            label="Price"
+            type="Number"
+            variant="outlined"
+            value={carPrice}
+            onChange={(event) => {
+              setPrice(event.target.value);
+            }}
+            sx={{
+              "& .MuiOutlinedInput-notchedOutline": {
+                boxShadow: 1,
+                borderRadius: "24px",
+              },
+              width: "32%",
+            }}
+            InputProps={{
+              endAdornment: <InputAdornment position="end">$</InputAdornment>,
+            }}
+
+          />
+          <TextField
+            required
+            margin="dense"
+            id="odometer"
+            label="Odometer"
+            type="Number"
+            variant="outlined"
+            value={carOdometer}
+            onChange={(event) => {
+              console.log(event.target.value);
+              setOdometer(event.target.value);
+            }}
+            sx={{
+              "& .MuiOutlinedInput-notchedOutline": {
+                boxShadow: 1,
+                borderRadius: "24px",
+              },
+              width: "33%",
+              marginLeft: 2,
+            }}
+            InputProps={{
+              endAdornment: <InputAdornment position="end">mil</InputAdornment>,
+            }}
+          />
+          <TextField
+            required
+            margin="dense"
+            id="status"
+            label="Status"
+            type="Status"
+            variant="outlined"
+            value={carStatus}
+            onChange={(event) => {
+              setStatus(event.target.value);
+            }}
+            sx={{
+              "& .MuiOutlinedInput-notchedOutline": {
+                boxShadow: 1,
+                borderRadius: "24px",
+              },
+              width: "48.5%",
+              marginRight: 1,
+            }}
+          />
+          <TextField
+            required
+            margin="dense"
+            id="color"
+            label="Color"
+            variant="outlined"
+            value={carColor}
+            onChange={(event) => {
+              setColor(event.target.value);
+            }}
+            sx={{
+              "& .MuiOutlinedInput-notchedOutline": {
+                boxShadow: 1,
+                borderRadius: "24px",
+              },
+              width: "48.5%",
+              marginLeft: 1,
+            }}
+          />
+          <TextField
+            required
+            margin="dense"
+            id="region"
+            label="Region"
+            type="Region"
+            variant="outlined"
+            fullWidth
+            value={carRegion}
+            onChange={(event) => {
+              setRegion(event.target.value);
+            }}
+            sx={{
+              "& .MuiOutlinedInput-notchedOutline": {
+                boxShadow: 1,
+                borderRadius: "24px",
+              },
+            }}
+          />
+          <TextField
+            required
+            select
+            margin="dense"
+            id="state"
+            label="State"
+            type="State"
+            variant="outlined"
+            value={carState}
+            onChange={(event) => {
+              setState(event.target.value);
+            }}
+            sx={{
+              "& .MuiOutlinedInput-notchedOutline": {
+                boxShadow: 1,
+                borderRadius: "24px",
+              },
+              width: "48.5%",
+              marginRight: 1,
+              textAlign: "left",
+            }}
+          >
+            {states.map((option) => (
+              <MenuItem key={option} value={option}>
+                {option}
+              </MenuItem>
+            ))}
+          </TextField>
+          <TextField
+            required
+            margin="dense"
+            id="date"
+            type="Date"
+            variant="outlined"
+            value={carDate}
+            onChange={(event) => {
+              setDate(event.target.value);
+            }}
+            sx={{
+              "& .MuiOutlinedInput-notchedOutline": {
+                boxShadow: 1,
+                borderRadius: "24px",
+                color: "red",
+              },
+              width: "48.5%",
+              marginLeft: 1,
+            }}
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button
+            variant="contained"
+            onClick={handleClose}
+            sx={{
+              background: "#ff5552",
+              ":hover": {
+                background: "#ff3733",
+              },
+            }}
+            startIcon={<CancelIcon />}
+          >
+            Cancel
+          </Button>
+          <Button
+            onClick={handleSubmit}
+            variant="contained"
+            startIcon={<AddCircleIcon />}
+          >
+            Add
+          </Button>
+        </DialogActions>
       </Dialog>
     </div>
   );

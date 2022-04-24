@@ -95,7 +95,7 @@ const columns = [
             width: "100%",
             textAlign: "center",
           }}
-        >
+        >$
           {cellValues.value}
         </div>
       );
