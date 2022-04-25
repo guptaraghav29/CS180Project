@@ -28,9 +28,7 @@ function App() {
         setCarData(JSON.parse(JSON.stringify(data)));
         let cars = [];
         data.forEach((car) => {
-          if (
-            cars.indexOf(car.manufacturer) === -1
-          ) {
+          if (cars.indexOf(car.manufacturer) === -1) {
             cars.push(car.manufacturer);
           }
         });
@@ -84,7 +82,7 @@ function App() {
           odometer: car.odometer,
           title_status: car.title_status,
           paint_color: car.paint_color,
-          state: car.state.toUpperCase(),
+          state: car.state,
           posting_date: car.posting_date,
         });
       }

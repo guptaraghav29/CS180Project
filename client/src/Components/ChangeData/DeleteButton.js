@@ -9,17 +9,16 @@ const DeleteButton = ({ currentSelection, fetchData }) => {
         variant="contained"
         sx={{
           background: "#ff5552",
-          ':hover' : {
-              background: "#ff3733",
+          ":hover": {
+            background: "#ff3733",
           },
         }}
         startIcon={<DeleteIcon />}
         onClick={() => {
           currentSelection.forEach((id) => {
-            fetch(`/cars/${id}`, { method: "DELETE" }).then((res) => {
-              if (res.status === 200) fetchData(); // probably should check once if deleted then refresh once at the end very bad every refresh
-            });
+            fetch(`/cars/${id}`, { method: "DELETE" });
           });
+          fetchData();
         }}
       >
         Delete
