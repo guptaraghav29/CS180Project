@@ -3,6 +3,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import DeleteButton from "../ChangeData/DeleteButton";
 import AddButton from "../ChangeData/AddButton";
 import SaveData from "../ChangeData/SaveData";
+import AveragePrice from "../Analytics/AveragePrice";
 
 const columns = [
   {
@@ -95,8 +96,8 @@ const columns = [
             width: "100%",
             textAlign: "center",
           }}
-        >$
-          {cellValues.value}
+        >
+          ${cellValues.value}
         </div>
       );
     },
@@ -263,6 +264,12 @@ const CarTable = ({
       <div className="py-3 flex justify-between">
         <div>
           <SaveData carTableData={carTableData} />
+        </div>
+        <div>
+          <AveragePrice
+            carTableData={carTableData}
+            currentSelection={currentSelection}
+          />
         </div>
         <div className="flex">
           <AddButton carCompanies={carCompanies} fetchData={fetchData} />

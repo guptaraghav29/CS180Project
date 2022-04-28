@@ -1,4 +1,4 @@
-import React, { useState, forwardRef, useRef } from "react";
+import React, { useState, forwardRef } from "react";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
@@ -6,13 +6,12 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
-import AddIcon from "@mui/icons-material/Add";
 import CancelIcon from "@mui/icons-material/Cancel";
 import InputAdornment from "@mui/material/InputAdornment";
 import Slide from "@mui/material/Slide";
 import MenuItem from "@mui/material/MenuItem";
 
-const Transition = React.forwardRef(function Transition(props, ref) {
+const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="down" ref={ref} {...props} />;
 });
 
@@ -113,8 +112,6 @@ const AddButton = ({ carCompanies, fetchData }) => {
     setState("");
     setDate("");
   };
-
-  const handleEmpty = () => {};
 
   const handleSubmit = () => {
     setOpen(false);
@@ -254,7 +251,6 @@ const AddButton = ({ carCompanies, fetchData }) => {
             InputProps={{
               endAdornment: <InputAdornment position="end">$</InputAdornment>,
             }}
-
           />
           <TextField
             required

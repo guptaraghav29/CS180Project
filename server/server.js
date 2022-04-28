@@ -33,6 +33,10 @@ app.get("/cars", (req, res) => {
   res.json(carData);
 });
 
+app.get("/cars/:id", (req, res) => {
+  res.send(carData.find((car) => car.id === req.params.id));
+});
+
 app.listen(5000, () => {
   console.log("Server started on port 5000");
 });
