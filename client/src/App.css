@@ -20,3 +20,12 @@ body {
   /* overflow-y: scroll; */
   box-sizing: border-box;
 }
+
+.-mb-px{
+  display: inline-block;
+  margin-right: -4px;
+}
+.mr-1 {
+  display: inline-block;
+  margin-right: -4px;
+}
