@@ -225,6 +225,26 @@ const CarTable = ({
   setCurrentSelection,
   fetchData,
 }) => {
+  const handleCellEdit = (event) => {
+    fetch(`/cars/${event.id}/update`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id: event.id,
+        field: event.field,
+        value: event.value,
+      }),
+    }).then((response) => {
+      if (!response.status === 200) {
+        console.log("error");
+      }
+    });
+    fetchData();
+  };
+
   return (
     <div
       style={{
@@ -240,6 +260,7 @@ const CarTable = ({
         pageSize={50}
         rowsPerPageOptions={[50]}
         checkboxSelection
+        onCellEditCommit={handleCellEdit}
         sx={{
           boxShadow: 2,
           border: 0,
