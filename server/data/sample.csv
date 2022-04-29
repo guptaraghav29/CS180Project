@@ -1,19 +1,2 @@
 id,manufacturer,model,year,price,condition,odometer,title_status,paint_color,region,state,posting_date
-7316814884,gmc,sierra 1500 crew cab slt,2014,33590,good,57923,clean,white,auburn,al,5/4/2021
-7316814758,chevrolet,silverado 1500,2010,22590,good,71229,clean,blue,auburn,al,5/4/2021
-7316814989,chevrolet,silverado 1500 crew,2020,39590,good,19160,clean,red,auburn,al,5/4/2021
-7316743432,toyota,tundra double cab sr,2017,30990,good,41124,clean,red,auburn,al,5/4/2021
-7316356412,ford,f-150 xlt,2013,15000,excellent,128000,clean,black,auburn,al,5/3/2021
-7316343444,gmc,sierra 2500 hd extended cab,2012,27990,good,68696,clean,black,auburn,al,5/3/2021
-7316304717,chevrolet,silverado 1500 double,2016,34590,good,29499,clean,silver,auburn,al,5/3/2021
-7316285779,toyota,tacoma,2019,35000,excellent,43000,clean,grey,auburn,al,5/3/2021
-7316257769,chevrolet,colorado extended cab,2016,29990,good,17302,clean,red,auburn,al,5/3/2021
-7316133914,chevrolet,corvette grand sport,2011,38590,good,30237,clean,red,auburn,al,5/3/2021
-7315816316,jeep,wrangler unlimited sport,2017,32990,good,30041,clean,silver,auburn,al,5/2/2021
-7315770394,chevrolet,silverado 1500 regular,2017,24590,good,40784,clean,white,auburn,al,5/2/2021
-7315756348,chevrolet,colorado crew cab z71,2016,30990,good,34940,clean,blue,auburn,al,5/2/2021
-7315715960,toyota,tacoma access cab pickup,2014,27990,good,17805,clean,red,auburn,al,5/2/2021
-7315379459,chevrolet,camaro ss coupe 2d,2016,37990,good,9704,clean,red,auburn,al,5/1/2021
-7315275975,toyota,tundra crewmax sr5 pickup,2014,33590,good,55251,clean,red,auburn,al,5/1/2021
-7315275942,ford,ranger supercrew xl pickup,2019,30990,good,1834,clean,black,auburn,al,5/1/2021
-7315270785,nissan,frontier crew cab pro-4x,2018,27990,good,37332,clean,silver,auburn,al,5/1/2021
+7316814884,gmc,test,2014,33590,good,57923,clean,white,auburn,al,5/4/2021

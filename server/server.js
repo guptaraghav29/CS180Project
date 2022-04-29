@@ -37,6 +37,20 @@ app.get("/cars/:id", (req, res) => {
   res.send(carData.find((car) => car.id === req.params.id));
 });
 
+app.post("/cars/:id/update", (req, res) => {
+  let { id, field, value } = req.body;
+  let update = carData.find((car) => car.id === id);
+  if (!update) {
+    res.status(404).json({ message: `Car with ${id} not found.` });
+  }
+  carData.forEach((car) => {
+    if (car.id === id) {
+      car[field] = value;
+      res.status(200).json(car);
+    }
+  });
+});
+
 app.listen(5000, () => {
   console.log("Server started on port 5000");
 });
