@@ -5,6 +5,7 @@ import CarModels from "./Components/Search/CarModels";
 import CarYears from "./Components/Search/CarYears";
 import CarTable from "./Components/Search/CarTable";
 import NavBar from "./Components/NavBar/NavBar";
+import TestChart from "./Components/Graphs/TestChart";
 
 function App() {
   const [carData, setCarData] = useState([]);
@@ -132,7 +133,7 @@ function App() {
         </div>
       </div>
 
-      <div className="py-8 w-full">
+      <div className="py- w-full">
         {currentCompany !== "" &&
         currentCompany !== null &&
         currentModel !== "" &&
@@ -152,6 +153,8 @@ function App() {
           <div></div>
         )}
       </div>
+
+      <TestChart />
     </div>
   );
 }
