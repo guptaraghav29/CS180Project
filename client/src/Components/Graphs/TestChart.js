@@ -1,20 +1,11 @@
 import React from "react";
-import { Doughnut } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 import Chart from "chart.js/auto";
 
-const data = {
-  labels: ["Red", "Green", "Yellow", "Orange"],
-  datasets: [
-    {
-      data: [300, 50, 100, 200],
-    },
-  ],
-};
-
-const TestChart = () => {
+const TestChart = ({chartData}) => {
   return (
     <div>
-      <Doughnut data={data} />
+      <Bar data={chartData} />
     </div>
   );
 };

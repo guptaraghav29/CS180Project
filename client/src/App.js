@@ -17,6 +17,8 @@ function App() {
   const [currentYear, setCurrentYear] = useState("");
   const [carTableData, setCarTableData] = useState([]);
   const [currentSelection, setCurrentSelection] = useState([]);
+  const [graphLabels, setGraphLabels] = useState([]);
+  const [graphPrices, setGraphPrices] = useState([]);
 
   useEffect(() => {
     fetchData();
@@ -64,8 +66,8 @@ function App() {
     setModelYears(years);
   }, [currentModel, carData]);
 
+  let carTable = [];
   useEffect(() => {
-    let carTable = [];
 
     carData.forEach((car) => {
       if (
@@ -90,6 +92,81 @@ function App() {
     });
     setCarTableData(carTable);
   }, [carData, currentCompany, currentModel, currentYear]);
+  //console.log(carTableData.region);
+
+  let graphLabel = [];
+  useEffect(() => {
+    let i = 0;
+    carTableData.forEach((region) => {
+      //console.log(carTable[i].region); //string type
+      graphLabel.push(carTableData[i].region);
+      //console.log(graphLabel.length);
+      i++;
+    });
+    setGraphLabels(graphLabel);
+    //console.log(graphLabels);
+  }, [carTableData]);
+
+  //this is a new array that just gets rid of duplicates removing so we have a more accurate one
+  //let graphLabelsNew = [...new Set(graphLabels)];
+  let graphData = [];
+  useEffect(() => {
+    /*
+    //this is the alg i had to compute the avg but it doesnt work idk why
+    var sum = 0;
+    var count = 0;
+    let i = 0;
+    console.log("length:" + carTableData.length);
+    for (i = 0; i < carTableData.length; i++) {
+      var region = carTableData[i].region;
+      while (graphLabelsNew.includes(region)) {
+        var intPrice = carTableData[i].price;
+        sum += Number(intPrice);
+        //console.log(typeof sum);
+        count++;
+        i++;
+      }
+      console.log(sum);
+      console.log("count: " + count);
+      var avg = sum / count;
+      graphData.push(avg);
+    }
+    */
+    let i = 0;
+    var flag = false;
+    carTableData.forEach((region) => {
+      console.log(carTableData[i].region); 
+      //console.log("\n" + carTableData[i].region in graphLabelsNew)
+      var region = carTableData[i].region;
+      if (graphLabels.includes(region)) {
+        i++;
+      }
+      //console.log(carTable[i].region); //string type
+      graphData.push(carTableData[i].price);
+      //console.log(graphLabel.length);
+      i++;
+    });
+    setGraphPrices(graphData);
+  }, [carTableData]);
+
+  
+  const data = {
+    labels: graphLabels,
+    datasets: [
+      {
+        data: graphPrices,
+        backgroundColor: ['#2D87BB', '#64C2A6', '#AADEA7', '#E6F69D', '#FEAE65', '#F66D44'],
+      },
+    ],
+    options: {
+      plugins: {
+        legend: {
+          display: false
+        }
+      },
+    },
+  };
+  //console.log(graphLabels.length);
 
   return (
     <div className="flex flex-col items-center">
@@ -152,9 +229,13 @@ function App() {
         ) : (
           <div></div>
         )}
-      </div>
-
-      <TestChart />
+      </div >
+      <br/>
+      <br/>
+        <div className="px-8 w-full" style={{width: 800}}>
+          <TestChart chartData={data}/>
+        </div>
+      
     </div>
   );
 }
