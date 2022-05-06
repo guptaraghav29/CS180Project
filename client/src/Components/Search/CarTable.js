@@ -4,6 +4,7 @@ import DeleteButton from "../ChangeData/DeleteButton";
 import AddButton from "../ChangeData/AddButton";
 import SaveData from "../ChangeData/SaveData";
 import AveragePrice from "../Analytics/AveragePrice";
+import NumPostings from "../Analytics/NumPostings";
 import BarChart from "../Graphs/BarChart";
 
 const columns = [
@@ -290,6 +291,12 @@ const CarTable = ({
         </div>
         <div>
           <AveragePrice
+            carTableData={carTableData}
+            currentSelection={currentSelection}
+          />
+        </div>
+        <div>
+          <NumPostings
             carTableData={carTableData}
             currentSelection={currentSelection}
           />
