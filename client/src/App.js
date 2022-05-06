@@ -16,6 +16,8 @@ function App() {
   const [currentYear, setCurrentYear] = useState("");
   const [carTableData, setCarTableData] = useState([]);
   const [currentSelection, setCurrentSelection] = useState([]);
+  const [graphLabels, setGraphLabels] = useState([]);
+  const [graphPrices, setGraphPrices] = useState([]);
 
   useEffect(() => {
     fetchData();
@@ -63,9 +65,8 @@ function App() {
     setModelYears(years);
   }, [currentModel, carData]);
 
+  let carTable = [];
   useEffect(() => {
-    let carTable = [];
-
     carData.forEach((car) => {
       if (
         car.manufacturer === currentCompany &&
@@ -90,6 +91,48 @@ function App() {
     setCarTableData(carTable);
   }, [carData, currentCompany, currentModel, currentYear]);
 
+  let graphLabel = [];
+  useEffect(() => {
+    let i = 0;
+    carTableData.forEach((region) => {
+      graphLabel.push(carTableData[i].region);
+      i++;
+    });
+    setGraphLabels(graphLabel);
+  }, [carTableData]);
+
+  //this is a new array that just gets rid of duplicates removing so we have a more accurate one
+  //let graphLabelsNew = [...new Set(graphLabels)];
+  let graphData = [];
+  useEffect(() => {
+    let i = 0;
+    var flag = false;
+    carTableData.forEach((region) => {
+      if (graphLabels.includes(carTableData[i].region)) {
+        i++;
+      }
+      graphData.push(carTableData[i].price);
+      i++;
+    });
+    setGraphPrices(graphData);
+  }, [carTableData]);
+
+  const data = {
+    labels: graphLabels,
+    datasets: [
+      {
+        data: graphPrices,
+        backgroundColor: [
+          "#F66D44",
+          "#64C2A6",
+          "#AADEA7",
+          "#E6F69D",
+          "#FEAE65",
+          "#F66D44",
+        ],
+      },
+    ],
+  };
   return (
     <div className="flex flex-col items-center">
       <div id="models" className="py-8">
@@ -132,26 +175,29 @@ function App() {
         </div>
       </div>
 
-      <div className="py-8 w-full">
+      <div className="py- w-full">
         {currentCompany !== "" &&
         currentCompany !== null &&
         currentModel !== "" &&
         currentModel !== null &&
         currentYear !== "" &&
         currentYear !== null ? (
-          <div className="px-8">
+          <div className="px-8 py-8">
             <CarTable
               carTableData={carTableData}
               carCompanies={carCompanies}
               currentSelection={currentSelection}
               setCurrentSelection={setCurrentSelection}
               fetchData={fetchData}
+              chartData={data}
             />
           </div>
         ) : (
           <div></div>
         )}
       </div>
+      <br />
+      <br />
     </div>
   );
 }

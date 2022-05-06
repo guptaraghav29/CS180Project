@@ -4,6 +4,7 @@ import DeleteButton from "../ChangeData/DeleteButton";
 import AddButton from "../ChangeData/AddButton";
 import SaveData from "../ChangeData/SaveData";
 import AveragePrice from "../Analytics/AveragePrice";
+import BarChart from "../Graphs/BarChart";
 
 const columns = [
   {
@@ -224,6 +225,7 @@ const CarTable = ({
   currentSelection,
   setCurrentSelection,
   fetchData,
+  chartData,
 }) => {
   const handleCellEdit = (event) => {
     fetch(`/cars/${event.id}/update`, {
@@ -300,6 +302,9 @@ const CarTable = ({
             fetchData={fetchData}
           />
         </div>
+      </div>
+      <div className="items-center px-8" style={{ width: 800 }}>
+        <BarChart chartData={chartData} />
       </div>
     </div>
   );
