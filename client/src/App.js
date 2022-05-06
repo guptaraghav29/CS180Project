@@ -23,6 +23,25 @@ function App() {
     fetchData();
   }, []);
 
+  const getData = (carTableData) => {
+    let i = 0;
+    let j = 0;
+    for (i = 0; i < graphLabelsNew.length; ++i) {
+      var sum = 0;
+      var count = 0;
+      for (j = 0; j < carTableData.length; ++j) {
+        if (graphLabelsNew[i] === carTableData[j].region) {
+          sum += parseInt(carTableData[j].price);
+          count += 1;
+        }
+      }
+      // console.log(sum);
+      // console.log(count);
+      graphData.push(sum / count);
+    }
+    setGraphPrices(graphData);
+  }
+
   const fetchData = () => {
     fetch("/cars")
       .then((response) => response.json())
@@ -101,24 +120,45 @@ function App() {
     setGraphLabels(graphLabel);
   }, [carTableData]);
 
+
+
   //this is a new array that just gets rid of duplicates removing so we have a more accurate one
-  //let graphLabelsNew = [...new Set(graphLabels)];
+  let graphLabelsNew = [...new Set(graphLabels)];
   let graphData = [];
   useEffect(() => {
-    let i = 0;
-    var flag = false;
+    getData(carTableData);
+    // let i = 0;
+    // let j = 0;
+    // for (i = 0; i < graphLabelsNew.length; ++i) {
+    //   var sum = 0;
+    //   var count = 0;
+    //   for (j = 0; j < carTableData.length; ++j) {
+    //     if (graphLabelsNew[i] === carTableData[j].region) {
+    //       sum += parseInt(carTableData[j].price);
+    //       count += 1;
+    //     }
+    //   }
+    //   // console.log(sum);
+    //   // console.log(count);
+    //   graphData.push(sum / count);
+    // }
+    /*
     carTableData.forEach((region) => {
       if (graphLabels.includes(carTableData[i].region)) {
         i++;
+        return;
       }
       graphData.push(carTableData[i].price);
       i++;
     });
-    setGraphPrices(graphData);
+    */
+   
+    // setGraphPrices(graphData);
   }, [carTableData]);
-
+  //console.log(graphData);
+  
   const data = {
-    labels: graphLabels,
+    labels: graphLabelsNew,
     datasets: [
       {
         data: graphPrices,
@@ -190,6 +230,7 @@ function App() {
               setCurrentSelection={setCurrentSelection}
               fetchData={fetchData}
               chartData={data}
+              getData={getData}
             />
           </div>
         ) : (
