@@ -5,7 +5,6 @@ import CarModels from "./Components/Search/CarModels";
 import CarYears from "./Components/Search/CarYears";
 import CarTable from "./Components/Search/CarTable";
 import NavBar from "./Components/NavBar/NavBar";
-import TestChart from "./Components/Graphs/TestChart";
 
 function App() {
   const [carData, setCarData] = useState([]);
@@ -68,7 +67,6 @@ function App() {
 
   let carTable = [];
   useEffect(() => {
-
     carData.forEach((car) => {
       if (
         car.manufacturer === currentCompany &&
@@ -92,82 +90,49 @@ function App() {
     });
     setCarTableData(carTable);
   }, [carData, currentCompany, currentModel, currentYear]);
-  //console.log(carTableData.region);
 
   let graphLabel = [];
   useEffect(() => {
     let i = 0;
     carTableData.forEach((region) => {
-      //console.log(carTable[i].region); //string type
       graphLabel.push(carTableData[i].region);
-      //console.log(graphLabel.length);
       i++;
     });
     setGraphLabels(graphLabel);
-    //console.log(graphLabels);
   }, [carTableData]);
 
   //this is a new array that just gets rid of duplicates removing so we have a more accurate one
   //let graphLabelsNew = [...new Set(graphLabels)];
   let graphData = [];
   useEffect(() => {
-    /*
-    //this is the alg i had to compute the avg but it doesnt work idk why
-    var sum = 0;
-    var count = 0;
-    let i = 0;
-    console.log("length:" + carTableData.length);
-    for (i = 0; i < carTableData.length; i++) {
-      var region = carTableData[i].region;
-      while (graphLabelsNew.includes(region)) {
-        var intPrice = carTableData[i].price;
-        sum += Number(intPrice);
-        //console.log(typeof sum);
-        count++;
-        i++;
-      }
-      console.log(sum);
-      console.log("count: " + count);
-      var avg = sum / count;
-      graphData.push(avg);
-    }
-    */
     let i = 0;
     var flag = false;
     carTableData.forEach((region) => {
-      console.log(carTableData[i].region); 
-      //console.log("\n" + carTableData[i].region in graphLabelsNew)
-      var region = carTableData[i].region;
-      if (graphLabels.includes(region)) {
+      if (graphLabels.includes(carTableData[i].region)) {
         i++;
       }
-      //console.log(carTable[i].region); //string type
       graphData.push(carTableData[i].price);
-      //console.log(graphLabel.length);
       i++;
     });
     setGraphPrices(graphData);
   }, [carTableData]);
 
-  
   const data = {
     labels: graphLabels,
     datasets: [
       {
         data: graphPrices,
-        backgroundColor: ['#2D87BB', '#64C2A6', '#AADEA7', '#E6F69D', '#FEAE65', '#F66D44'],
+        backgroundColor: [
+          "#F66D44",
+          "#64C2A6",
+          "#AADEA7",
+          "#E6F69D",
+          "#FEAE65",
+          "#F66D44",
+        ],
       },
     ],
-    options: {
-      plugins: {
-        legend: {
-          display: false
-        }
-      },
-    },
   };
-  //console.log(graphLabels.length);
-
   return (
     <div className="flex flex-col items-center">
       <div id="models" className="py-8">
@@ -217,25 +182,22 @@ function App() {
         currentModel !== null &&
         currentYear !== "" &&
         currentYear !== null ? (
-          <div className="px-8">
+          <div className="px-8 py-8">
             <CarTable
               carTableData={carTableData}
               carCompanies={carCompanies}
               currentSelection={currentSelection}
               setCurrentSelection={setCurrentSelection}
               fetchData={fetchData}
+              chartData={data}
             />
           </div>
         ) : (
           <div></div>
         )}
-      </div >
-      <br/>
-      <br/>
-        <div className="px-8 w-full" style={{width: 800}}>
-          <TestChart chartData={data}/>
-        </div>
-      
+      </div>
+      <br />
+      <br />
     </div>
   );
 }

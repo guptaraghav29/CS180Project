@@ -12,7 +12,11 @@ const AveragePrice = ({ carTableData, currentSelection }) => {
         selectedChoices = selectedChoices.filter((id) => id !== car.id);
       }
     });
-    setAveragePrice(Math.floor(price / currentSelection.length));
+    setAveragePrice(
+      currentSelection.length === 0
+        ? 0
+        : Math.floor(price / currentSelection.length)
+    );
   }, [carTableData, currentSelection]);
 
   return <div>Average Price: {averagePrice}</div>;
