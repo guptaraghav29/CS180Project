@@ -226,7 +226,6 @@ const CarTable = ({
   setCurrentSelection,
   fetchData,
   chartData,
-  getData,
 }) => {
   const handleCellEdit = (event) => {
     fetch(`/cars/${event.id}/update`, {
@@ -246,7 +245,6 @@ const CarTable = ({
       }
     });
     fetchData();
-    getData(carTableData);
   };
 
   return (

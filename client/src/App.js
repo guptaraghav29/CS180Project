@@ -23,25 +23,6 @@ function App() {
     fetchData();
   }, []);
 
-  const getData = (carTableData) => {
-    let i = 0;
-    let j = 0;
-    for (i = 0; i < graphLabelsNew.length; ++i) {
-      var sum = 0;
-      var count = 0;
-      for (j = 0; j < carTableData.length; ++j) {
-        if (graphLabelsNew[i] === carTableData[j].region) {
-          sum += parseInt(carTableData[j].price);
-          count += 1;
-        }
-      }
-      // console.log(sum);
-      // console.log(count);
-      graphData.push(sum / count);
-    }
-    setGraphPrices(graphData);
-  }
-
   const fetchData = () => {
     fetch("/cars")
       .then((response) => response.json())
@@ -58,6 +39,33 @@ function App() {
       })
       .catch((error) => console.log(error));
   };
+  /*
+  var data = {
+    labels: graphLabels,
+    datasets: [
+      {
+        data: graphPrices,
+        backgroundColor: [
+          "#F66D44",
+          "#64C2A6",
+          "#AADEA7",
+          "#E6F69D",
+          "#FEAE65",
+          "#F66D44",
+        ],
+      },
+    ],
+  };
+*/
+
+  // useEffect(() => {
+  //   getLabels(carTableData);
+  //   getData(carTableData);
+  //   data.labels = graphLabels;
+  //   data.datasets[0].data = graphPrices;
+
+  //   console.log(data);
+  // }, [carTableData]);
 
   useEffect(() => {
     let carModels = [];
@@ -110,60 +118,41 @@ function App() {
     setCarTableData(carTable);
   }, [carData, currentCompany, currentModel, currentYear]);
 
+  //console.log(carTableData.region);
+
   let graphLabel = [];
   useEffect(() => {
-    let i = 0;
-    carTableData.forEach((region) => {
-      graphLabel.push(carTableData[i].region);
-      i++;
+    carTableData.forEach((car) => {
+      //console.log(carTable[i].region); //string type
+      if (!graphLabel.includes(car.region)) graphLabel.push(car.region);
     });
     setGraphLabels(graphLabel);
+
+    let graphPrice = [];
+    graphLabel.forEach((region) => {
+      var sum = 0;
+      var length = 0;
+      for (let i = 0; i < carTableData.length; i++) {
+        if (carTableData[i].region === region) {
+          sum += parseInt(carTableData[i].price);
+          length++;
+        }
+      }
+      graphPrice.push(sum / length);
+    });
+    setGraphPrices(graphPrice);
   }, [carTableData]);
-
-
 
   //this is a new array that just gets rid of duplicates removing so we have a more accurate one
-  let graphLabelsNew = [...new Set(graphLabels)];
-  let graphData = [];
-  useEffect(() => {
-    getData(carTableData);
-    // let i = 0;
-    // let j = 0;
-    // for (i = 0; i < graphLabelsNew.length; ++i) {
-    //   var sum = 0;
-    //   var count = 0;
-    //   for (j = 0; j < carTableData.length; ++j) {
-    //     if (graphLabelsNew[i] === carTableData[j].region) {
-    //       sum += parseInt(carTableData[j].price);
-    //       count += 1;
-    //     }
-    //   }
-    //   // console.log(sum);
-    //   // console.log(count);
-    //   graphData.push(sum / count);
-    // }
-    /*
-    carTableData.forEach((region) => {
-      if (graphLabels.includes(carTableData[i].region)) {
-        i++;
-        return;
-      }
-      graphData.push(carTableData[i].price);
-      i++;
-    });
-    */
-   
-    // setGraphPrices(graphData);
-  }, [carTableData]);
-  //console.log(graphData);
-  
+  //let graphLabelsNew = [...new Set(graphLabels)];
+
   const data = {
-    labels: graphLabelsNew,
+    labels: graphLabels,
     datasets: [
       {
         data: graphPrices,
         backgroundColor: [
-          "#F66D44",
+          "#2D87BB",
           "#64C2A6",
           "#AADEA7",
           "#E6F69D",
@@ -172,7 +161,16 @@ function App() {
         ],
       },
     ],
+    options: {
+      plugins: {
+        legend: {
+          display: false,
+        },
+      },
+    },
   };
+  //console.log(graphLabels.length);
+
   return (
     <div className="flex flex-col items-center">
       <div id="models" className="py-8">
@@ -230,7 +228,7 @@ function App() {
               setCurrentSelection={setCurrentSelection}
               fetchData={fetchData}
               chartData={data}
-              getData={getData}
+              // getData={getData}
             />
           </div>
         ) : (
