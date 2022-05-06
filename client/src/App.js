@@ -39,6 +39,33 @@ function App() {
       })
       .catch((error) => console.log(error));
   };
+  /*
+  var data = {
+    labels: graphLabels,
+    datasets: [
+      {
+        data: graphPrices,
+        backgroundColor: [
+          "#F66D44",
+          "#64C2A6",
+          "#AADEA7",
+          "#E6F69D",
+          "#FEAE65",
+          "#F66D44",
+        ],
+      },
+    ],
+  };
+*/
+
+  // useEffect(() => {
+  //   getLabels(carTableData);
+  //   getData(carTableData);
+  //   data.labels = graphLabels;
+  //   data.datasets[0].data = graphPrices;
+
+  //   console.log(data);
+  // }, [carTableData]);
 
   useEffect(() => {
     let carModels = [];
@@ -91,31 +118,33 @@ function App() {
     setCarTableData(carTable);
   }, [carData, currentCompany, currentModel, currentYear]);
 
+  //console.log(carTableData.region);
+
   let graphLabel = [];
   useEffect(() => {
-    let i = 0;
-    carTableData.forEach((region) => {
-      graphLabel.push(carTableData[i].region);
-      i++;
+    carTableData.forEach((car) => {
+      //console.log(carTable[i].region); //string type
+      if (!graphLabel.includes(car.region)) graphLabel.push(car.region);
     });
     setGraphLabels(graphLabel);
+
+    let graphPrice = [];
+    graphLabel.forEach((region) => {
+      var sum = 0;
+      var length = 0;
+      for (let i = 0; i < carTableData.length; i++) {
+        if (carTableData[i].region === region) {
+          sum += parseInt(carTableData[i].price);
+          length++;
+        }
+      }
+      graphPrice.push(sum / length);
+    });
+    setGraphPrices(graphPrice);
   }, [carTableData]);
 
   //this is a new array that just gets rid of duplicates removing so we have a more accurate one
   //let graphLabelsNew = [...new Set(graphLabels)];
-  let graphData = [];
-  useEffect(() => {
-    let i = 0;
-    var flag = false;
-    carTableData.forEach((region) => {
-      if (graphLabels.includes(carTableData[i].region)) {
-        i++;
-      }
-      graphData.push(carTableData[i].price);
-      i++;
-    });
-    setGraphPrices(graphData);
-  }, [carTableData]);
 
   const data = {
     labels: graphLabels,
@@ -123,7 +152,7 @@ function App() {
       {
         data: graphPrices,
         backgroundColor: [
-          "#F66D44",
+          "#2D87BB",
           "#64C2A6",
           "#AADEA7",
           "#E6F69D",
@@ -132,7 +161,16 @@ function App() {
         ],
       },
     ],
+    options: {
+      plugins: {
+        legend: {
+          display: false,
+        },
+      },
+    },
   };
+  //console.log(graphLabels.length);
+
   return (
     <div className="flex flex-col items-center">
       <div id="models" className="py-8">
@@ -190,6 +228,7 @@ function App() {
               setCurrentSelection={setCurrentSelection}
               fetchData={fetchData}
               chartData={data}
+              // getData={getData}
             />
           </div>
         ) : (
