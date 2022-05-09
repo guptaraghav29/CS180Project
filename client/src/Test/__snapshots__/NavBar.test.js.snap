@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`testing the snapshot 1`] = `
+<ul
+  className="flex border-color-blue-500"
+  id="bar"
+>
+  <li
+    className="-mb-px mr-1"
+  >
+    <a
+      className="border-b-4 border-sky-blue-500 inline-block rounded-t py-2 px-4 text-blue-500 font-semibold hover:text-blue-800 font-semibold"
+      href="#search"
+      id="search"
+      onClick={[Function]}
+    >
+      Search
+    </a>
+  </li>
+  <li
+    className="mr-1"
+  >
+    <a
+      className="border-b-4 border-sky-blue-500 inline-block rounded-t py-2 px-4 text-blue-500 font-semibold hover:text-blue-800 font-semibold"
+      href="#analysis"
+      id="analytics"
+      onClick={[Function]}
+    >
+      Analytics
+    </a>
+  </li>
+  <li
+    className="mr-1"
+  >
+    <a
+      className="border-b-4 border-sky-blue-500 inline-block rounded-t py-2 px-4 text-blue-500 font-semibold hover:text-blue-800 font-semibold"
+      href="#adv"
+      id="adv"
+      onClick={[Function]}
+    >
+      Advanced Search
+    </a>
+  </li>
+</ul>
+`;
