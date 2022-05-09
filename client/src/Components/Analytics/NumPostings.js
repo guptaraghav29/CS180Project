@@ -5,22 +5,21 @@ const NumPostings = ({ carTableData, currentSelection }) => {
 
   useEffect(() => {
     let selectedChoices = currentSelection;
-    let price = 0;
+    let count = 0;
     carTableData.forEach((car) => {
-      if (selectedChoices.includes(car.id)) {
-        price += parseInt(car.state);
+      if (selectedChoices.includes(car.state)) {
+        count = count + 1;
         selectedChoices = selectedChoices.filter((id) => id !== car.id);
       }
     });
 
     setNumberOfPostings(
       currentSelection.length === 0
-        ? 0
-        : Math.floor(price / currentSelection.length)
+        ? 0: Math.floor(currentSelection.state / currentSelection.length)
     );
   }, [carTableData, currentSelection]);
 
-  return <div>Number of Postings by Location: {NumPostings}</div>;
+  return <div>Number of Postings by Location: {numberPostings}</div>;
 };
 
 export default NumPostings;
