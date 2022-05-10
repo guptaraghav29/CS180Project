@@ -3,6 +3,7 @@ import * as ReactDOM from "react-dom";
 import CarBrands from "../Components/Search/CarBrands";
 import renderer from "react-test-renderer";
 import App from "../App";
+import { createRoot } from 'react-dom/client';
 
 import {
 	fireEvent,
@@ -15,8 +16,7 @@ it("testing the snapshot", () => {
 	expect(tree).toMatchSnapshot();
 });
 
-
-it("renders therp content without any crashes", () => {
+it("renders the user content without any crashes", () => {
 	const root = document.createElement("root");
 	ReactDOM.render(< CarBrands />, root);
 	const { getByLabelText } = getQueriesForElement(root);

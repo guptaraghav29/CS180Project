@@ -285,17 +285,21 @@ const CarTable = ({
 				}}
 			/>
 			<div className="py-3 flex justify-between">
-				<div>
+				<div className="flex">
+					Save Data:
 					<SaveData carTableData={carTableData} />
 				</div>
-				<div>
+				<div className="flex">
 					<AveragePrice
 						carTableData={carTableData}
 						currentSelection={currentSelection}
+
 					/>
 				</div>
 				<div className="flex">
+					Add Entry:
 					<AddButton carCompanies={carCompanies} fetchData={fetchData} />
+					Delete:
 					<DeleteButton
 						currentSelection={currentSelection}
 						setCurrentSelection={setCurrentSelection}
@@ -304,6 +308,7 @@ const CarTable = ({
 				</div>
 			</div>
 			<div className="items-center px-8" style={{ width: 800 }}>
+				Chart
 				<BarChart chartData={chartData} />
 			</div>
 		</div>
