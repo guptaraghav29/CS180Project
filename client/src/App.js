@@ -19,6 +19,30 @@ function App() {
   const [graphLabels, setGraphLabels] = useState([]);
   const [graphPrices, setGraphPrices] = useState([]);
 
+  const data = {
+    labels: graphLabels,
+    datasets: [
+      {
+        data: graphPrices,
+        backgroundColor: [
+          "#2D87BB",
+          "#64C2A6",
+          "#AADEA7",
+          "#E6F69D",
+          "#FEAE65",
+          "#F66D44",
+        ],
+      },
+    ],
+    options: {
+      plugins: {
+        legend: {
+          display: false,
+        },
+      },
+    },
+  };
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -39,33 +63,6 @@ function App() {
       })
       .catch((error) => console.log(error));
   };
-  /*
-  var data = {
-    labels: graphLabels,
-    datasets: [
-      {
-        data: graphPrices,
-        backgroundColor: [
-          "#F66D44",
-          "#64C2A6",
-          "#AADEA7",
-          "#E6F69D",
-          "#FEAE65",
-          "#F66D44",
-        ],
-      },
-    ],
-  };
-*/
-
-  // useEffect(() => {
-  //   getLabels(carTableData);
-  //   getData(carTableData);
-  //   data.labels = graphLabels;
-  //   data.datasets[0].data = graphPrices;
-
-  //   console.log(data);
-  // }, [carTableData]);
 
   useEffect(() => {
     let carModels = [];
@@ -92,15 +89,53 @@ function App() {
     setModelYears(years);
   }, [currentModel, carData]);
 
-  let carTable = [];
   useEffect(() => {
+    let currentSelection = [];
     carData.forEach((car) => {
       if (
         car.manufacturer === currentCompany &&
         car.model === currentModel &&
         car.year === currentYear
       ) {
-        carTable.push({
+        currentSelection.push({
+          id: car.id,
+          region: car.region,
+          brand: car.manufacturer,
+          model: car.model,
+          year: car.year,
+          price: car.price,
+          odometer: car.odometer,
+          title_status: car.title_status,
+          paint_color: car.paint_color,
+          state: car.state,
+          posting_date: car.posting_date,
+        });
+      } else if (
+        car.manufacturer === currentCompany &&
+        car.model === currentModel &&
+        (currentYear === null || currentYear === "")
+      ) {
+        console.log("check 1");
+        currentSelection.push({
+          id: car.id,
+          region: car.region,
+          brand: car.manufacturer,
+          model: car.model,
+          year: car.year,
+          price: car.price,
+          odometer: car.odometer,
+          title_status: car.title_status,
+          paint_color: car.paint_color,
+          state: car.state,
+          posting_date: car.posting_date,
+        });
+      } else if (
+        car.manufacturer === currentCompany &&
+        (currentModel === null || currentModel === "") &&
+        (currentYear === null || currentYear === "")
+      ) {
+        console.log("check 2");
+        currentSelection.push({
           id: car.id,
           region: car.region,
           brand: car.manufacturer,
@@ -115,15 +150,12 @@ function App() {
         });
       }
     });
-    setCarTableData(carTable);
+    setCarTableData(currentSelection);
   }, [carData, currentCompany, currentModel, currentYear]);
 
-  //console.log(carTableData.region);
-
-  let graphLabel = [];
   useEffect(() => {
+    let graphLabel = [];
     carTableData.forEach((car) => {
-      //console.log(carTable[i].region); //string type
       if (!graphLabel.includes(car.region)) graphLabel.push(car.region);
     });
     setGraphLabels(graphLabel);
@@ -142,34 +174,6 @@ function App() {
     });
     setGraphPrices(graphPrice);
   }, [carTableData]);
-
-  //this is a new array that just gets rid of duplicates removing so we have a more accurate one
-  //let graphLabelsNew = [...new Set(graphLabels)];
-
-  const data = {
-    labels: graphLabels,
-    datasets: [
-      {
-        data: graphPrices,
-        backgroundColor: [
-          "#2D87BB",
-          "#64C2A6",
-          "#AADEA7",
-          "#E6F69D",
-          "#FEAE65",
-          "#F66D44",
-        ],
-      },
-    ],
-    options: {
-      plugins: {
-        legend: {
-          display: false,
-        },
-      },
-    },
-  };
-  //console.log(graphLabels.length);
 
   return (
     <div className="flex flex-col items-center">
@@ -214,12 +218,7 @@ function App() {
       </div>
 
       <div className="py- w-full">
-        {currentCompany !== "" &&
-        currentCompany !== null &&
-        currentModel !== "" &&
-        currentModel !== null &&
-        currentYear !== "" &&
-        currentYear !== null ? (
+        {currentCompany !== "" && currentCompany !== null ? (
           <div className="px-8 py-8">
             <CarTable
               carTableData={carTableData}
@@ -228,7 +227,6 @@ function App() {
               setCurrentSelection={setCurrentSelection}
               fetchData={fetchData}
               chartData={data}
-              // getData={getData}
             />
           </div>
         ) : (
