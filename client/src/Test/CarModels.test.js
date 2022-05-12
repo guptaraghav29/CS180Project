@@ -3,7 +3,7 @@ import * as ReactDOM from "react-dom";
 import App from "../App";
 import CarModels from "../Components/Search/CarModels";
 import renderer from "react-test-renderer";
-import { createRoot } from 'react-dom/client';
+// import { createRoot } from 'react-dom/client';
 
 import {
     fireEvent,
