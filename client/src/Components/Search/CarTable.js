@@ -5,6 +5,7 @@ import AddButton from "../ChangeData/AddButton";
 import SaveData from "../ChangeData/SaveData";
 import AveragePrice from "../Analytics/AveragePrice";
 import BarChart from "../Graphs/BarChart";
+import ChartTrends from "../Analytics/ChartTrends";
 
 const columns = [
 	{
@@ -296,6 +297,13 @@ const CarTable = ({
 
 					/>
 				</div>
+				{/* <div className="flex">
+					<ChartTrends
+						carTableData={carTableData}
+						currentSelection={currentSelection}
+
+					/>
+				</div> */}
 				<div className="flex">
 					Add Entry:
 					<AddButton carCompanies={carCompanies} fetchData={fetchData} />
