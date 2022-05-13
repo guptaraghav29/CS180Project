@@ -5,7 +5,7 @@ import renderer from "react-test-renderer";
 import { createRoot } from 'react-dom/client';
 import App from "../App";
 
-import {render, fireEvent, screen, getQueriesForElement} from "@testing-library/react";
+import {getQueriesForElement} from "@testing-library/react";
 
 it("testing the snapshot", () => {
 	const tree = renderer.create(< AddButton />).toJSON();

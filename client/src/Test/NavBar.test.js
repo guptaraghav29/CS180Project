@@ -2,7 +2,7 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import NavBar from "../Components/NavBar/NavBar";
 import renderer from "react-test-renderer";
-import { createRoot } from 'react-dom/client';
+// import { createRoot } from 'react-dom/client';
 import App from "../App";
 
 import {
