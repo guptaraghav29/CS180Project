@@ -5,7 +5,7 @@ import CarModels from "./Components/Search/CarModels";
 import CarYears from "./Components/Search/CarYears";
 import CarTable from "./Components/Search/CarTable";
 import NavBar from "./Components/NavBar/NavBar";
-import ChartTrends from "./Components/Analytics/ChartTrends";
+// import ChartTrends from "./Components/Analytics/ChartTrends";
 
 function App() {
 	const [carData, setCarData] = useState([]);

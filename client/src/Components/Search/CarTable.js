@@ -297,13 +297,13 @@ const CarTable = ({
 
 					/>
 				</div>
-				{/* <div className="flex">
+				<div className="flex">
 					<ChartTrends
 						carTableData={carTableData}
 						currentSelection={currentSelection}
 
 					/>
-				</div> */}
+				</div>
 				<div className="flex">
 					Add Entry:
 					<AddButton carCompanies={carCompanies} fetchData={fetchData} />

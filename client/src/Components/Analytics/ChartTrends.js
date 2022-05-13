@@ -6,56 +6,62 @@ import CarTable from "../Search/CarTable";
 import BarChart from "../Graphs/BarChart";
 import AddButton from "../ChangeData/AddButton";
 import DeleteButton from "../ChangeData/DeleteButton";
-
-export const options = {
-    responsive: true,
-    plugins: {
-        legend: {
-            position: 'top',
-        },
-        title: {
-            display: true,
-            text: 'Frequency of Car Listings in a state:',
-        },
-    },
-};
+import App from "../../App";
 
 const ChartTrends = ({ carTableData, currentSelection }) => {
-    // const [frequency, setFrequency] = useState(0);
+    const [frequency, setFrequency] = useState();
+    console.log("Frequency: " + currentSelection)
+    console.log("Frequency: " + carTableData)
 
     // useEffect(() => {
-    //     // let location = currentSelection.state;
-    //     let count = 1;
+    //     let selectedChoices = currentSelection;
+    //     let price = 0;
     //     carTableData.forEach((car) => {
-    //         if (currentSelection.includes(car.state)) {
-    //             // selectedChoices = selectedChoices.filter((id) => id !== car.id);
-    //             count = count + 1;
+    //         if (selectedChoices.includes(car.id)) {
+    //             price += parseInt(car.price);
+    //             selectedChoices = selectedChoices.filter((id) => id !== car.id);
     //         }
     //     });
     //     setFrequency(
-    //         count / currentSelection.length
+    //         currentSelection.length === 0
+    //             ? 0
+    //             : Math.floor(price / currentSelection.length)
     //     );
     // }, [carTableData, currentSelection]);
 
-    // const labels = [currentSelection.region];
-    // const data = {
-    //     labels,
-    //     datasets: [
-    //         {
-    //             label: 'Frequency',
-    //             data: [frequency],
-    //             backgroundColor: 'rgba(255, 99, 132, 0.5)',
-    //         }
-    //     ],
-    // };
+    // const data = [
+    //     {
+    //         x: [1, 2, 3],
+    //         y: [4, 5, 6],
+    //         type: "bar",
+    //     },
+    // ];
 
-    const data = [
-        {
-            x: [currentSelection],
-            y: [carTableData],
-            type: "bar",
+    const labels = ['State'];
+
+    const data = {
+        labels,
+        datasets: [
+            {
+                label: 'Dataset 1',
+                data: [1,2,3,4,5,6,7],
+                backgroundColor: 'rgba(255, 99, 132, 0.5)',
+            }
+        ]
+    }
+
+    const options = {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+            title: {
+                display: true,
+                text: 'Frequency of Car Listings in a state:',
+            },
         },
-    ];
+    };
 
     return (
         <div>
@@ -63,13 +69,13 @@ const ChartTrends = ({ carTableData, currentSelection }) => {
             {/* <CarTable/> */}
 
             <h1 style={{ fontSize: "40px" }}> Chart Trends </h1>
-            Frequency of Car Listings in that state: 
-            {/* <Bar options={options} data={data} /> */}
+            {/* <p> Frequency of Car Listings in that state: {frequency} </p> */}
             <br></br>
             <AddButton />
             <DeleteButton />
             {/* <AveragePrice/> */}
-            <Plot data={data} layout={{ title: "Frequency of Car Listings By State" }} />
+            {/* <Plot data={data} layout={{ title: "Frequency of Car Listings By State" }} /> */}
+            <Bar options={options} data={data} />
 
         </div>
     )
