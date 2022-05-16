@@ -19,6 +19,7 @@ function App() {
 	const [currentSelection, setCurrentSelection] = useState([]);
 	const [graphLabels, setGraphLabels] = useState([]);
 	const [graphPrices, setGraphPrices] = useState([]);
+	const [frequency, setFrequency] = useState([]);
 
 	const data = {
 		labels: graphLabels,
@@ -44,6 +45,49 @@ function App() {
 		},
 	};
 
+	const newData = {
+		labels: graphLabels,
+		datasets: [
+			{
+				data: frequency,
+				backgroundColor: [
+					"#AA87A4",
+					"#B4C2A5",
+					"#CADEA6",
+					"#D6F697",
+					"#EEAE68",
+					"#F66D49",
+				],
+			},
+		],
+		/*
+		const options = {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+            title: {
+                display: true,
+                text: 'Frequency of Car Listings in a state:',
+            },
+        },
+    };
+		*/
+		options: {
+			
+			plugins: {
+				legend: {
+					position: 'top',
+				},
+				title: {
+					display: true,
+					text: 'Frequency of Car Listings in a state:',
+				},
+			},
+		},
+	}
+
 	useEffect(() => {
 		fetchData();
 	}, []);
@@ -58,6 +102,7 @@ function App() {
 					if (cars.indexOf(car.manufacturer) === -1) {
 						cars.push(car.manufacturer);
 					}
+					
 				});
 				cars.sort();
 				setCarCompanies(cars);
@@ -161,6 +206,8 @@ function App() {
 		});
 		setGraphLabels(graphLabel);
 
+
+		//average price
 		let graphPrice = [];
 		graphLabel.forEach((region) => {
 			var sum = 0;
@@ -175,6 +222,34 @@ function App() {
 		});
 		setGraphPrices(graphPrice);
 	}, [carTableData]);
+
+	useEffect(() => {
+		let graphLabel = [];
+		carTableData.forEach((car) => {
+			if (!graphLabel.includes(car.region)) graphLabel.push(car.region);
+		});
+		setGraphLabels(graphLabel);
+
+
+		//average price
+		let graphPrice = [];
+		graphLabel.forEach((region) => {
+			var sum = 0;
+			var length = 0;
+			for (let i = 0; i < carTableData.length; i++) {
+				if(currentSelection !== carTableData[i])
+				{
+					if (carTableData[i].region === region) {
+						sum += parseInt(carTableData[i].odometer);
+						length++;
+					}
+				}
+			}
+			graphPrice.push(sum / length);
+		});
+		setFrequency(graphPrice);
+	}, [carTableData]);
+
 
 	return (
 		<div className="flex flex-col items-center">
@@ -228,6 +303,7 @@ function App() {
 							setCurrentSelection={setCurrentSelection}
 							fetchData={fetchData}
 							chartData={data}
+							chartData2={newData}
 						/>
 					</div>
 				) : (

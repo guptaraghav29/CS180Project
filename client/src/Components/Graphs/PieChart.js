@@ -1,5 +1,5 @@
 import React from "react";
-import { Bar } from "react-chartjs-2";
+import { Pie } from "react-chartjs-2";
 import Chart from "chart.js/auto";
 
 const options = {
@@ -10,13 +10,13 @@ const options = {
   },
 };
 
-const BarChart = ({ chartData }) => {
+const PieChart = ({ chartData }) => {
   return (
     <div>
-      <h1> Average Price</h1>
-      <Bar data={chartData} options={options} />
+      <h1> Average Miles</h1>
+      <Pie data={chartData} options={options} />
     </div>
   );
 };
 
-export default BarChart;
+export default PieChart;

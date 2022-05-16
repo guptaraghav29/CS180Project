@@ -6,6 +6,7 @@ import SaveData from "../ChangeData/SaveData";
 import AveragePrice from "../Analytics/AveragePrice";
 import BarChart from "../Graphs/BarChart";
 import ChartTrends from "../Analytics/ChartTrends";
+import PieChart from "../Graphs/PieChart";
 
 const columns = [
 	{
@@ -227,6 +228,7 @@ const CarTable = ({
 	setCurrentSelection,
 	fetchData,
 	chartData,
+	chartData2,
 }) => {
 	const handleCellEdit = (event) => {
 		fetch(`/cars/${event.id}/update`, {
@@ -287,7 +289,6 @@ const CarTable = ({
 			/>
 			<div className="py-3 flex justify-between">
 				<div className="flex">
-					Save Data:
 					<SaveData carTableData={carTableData} />
 				</div>
 				<div className="flex">
@@ -298,16 +299,7 @@ const CarTable = ({
 					/>
 				</div>
 				<div className="flex">
-					<ChartTrends
-						carTableData={carTableData}
-						currentSelection={currentSelection}
-
-					/>
-				</div>
-				<div className="flex">
-					Add Entry:
 					<AddButton carCompanies={carCompanies} fetchData={fetchData} />
-					Delete:
 					<DeleteButton
 						currentSelection={currentSelection}
 						setCurrentSelection={setCurrentSelection}
@@ -315,9 +307,10 @@ const CarTable = ({
 					/>
 				</div>
 			</div>
-			<div className="items-center px-8" style={{ width: 800 }}>
-				Chart
+			<div className="flex items-center px-10" style={{ width: 800 }}>
+
 				<BarChart chartData={chartData} />
+				<PieChart chartData={chartData2} />
 			</div>
 		</div>
 	);
