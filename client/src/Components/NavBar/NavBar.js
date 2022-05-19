@@ -72,6 +72,18 @@ const NavBar = () => {
           Advanced Search
         </a>
       </li>
+      <li className="mr-1">
+        <a
+          className="border-b-4 border-sky-blue-500 inline-block rounded-t py-2 px-4 text-blue-500 font-semibold hover:text-blue-800 font-semibold"
+          id="analytics"
+          href="/ImportCSV"
+          onClick={() => {
+            changeStyleAnalytics();
+          }}
+        >
+          Import CSV
+        </a>
+      </li>
     </ul>
   );
 };

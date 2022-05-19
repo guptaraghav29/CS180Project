@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ChartTrends from "./Components/Analytics/ChartTrends";
+import ImportCSV from "./Components/ChangeData/ImportCSV";
 
 
 ReactDOM.render(
@@ -12,6 +13,7 @@ ReactDOM.render(
 			<Routes>
 				<Route path="/" element={<App />} />
 				<Route path="ChartTrends" element={<ChartTrends />} />
+				<Route path="ImportCSV" element={<ImportCSV/>} />
 			</Routes>
 		</BrowserRouter>
 	</React.StrictMode>,
