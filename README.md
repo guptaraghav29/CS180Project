@@ -21,9 +21,10 @@ We are performing data analytics on the used car dataset to achieve following re
 Other Features:
 
 - Search for cars by entering make of a car and additional filters by model and/or year.
-- Add car entries to the dataset
+- Add car entries to the dataset.
 - Export the results as a csv file.
 - Delete car entries from the dataset.
+- Edit car entries.
 
 ## Installation/Usage
 
