@@ -39,7 +39,7 @@ const AveragePrice = ({ carTableData, currentSelection }) => {
 	return (
 		<div>
 			<div> Average Price: {averagePrice} </div>
-			<div> Average Miles: {averageMiles} </div>
+			{/* <div> Average Miles: {averageMiles} </div> */}
 		</div>
 
 	)

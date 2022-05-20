@@ -24,7 +24,7 @@ function App() {
 	const [frequency, setFrequency] = useState([]);
 
 	function usePrevious(value) {
-		const ref = useRef();
+		const ref = useRef(carTableData);
 		useEffect(() => {
 		  ref.current = value;
 		});
@@ -32,6 +32,7 @@ function App() {
 		if(frequency !== null)
 			return ref.current;
 	}
+	console.log(usePrevious({frequency}))
 
 	const data = {
 		labels: graphLabels,
