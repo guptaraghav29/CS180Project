@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import CarBrands from "./Components/Search/CarBrands";
 import CarModels from "./Components/Search/CarModels";
 import CarYears from "./Components/Search/CarYears";
@@ -19,6 +19,10 @@ function App() {
   const [graphLabels, setGraphLabels] = useState([]);
   const [graphPrices, setGraphPrices] = useState([]);
   const [frequency, setFrequency] = useState([]);
+
+	localStorage.setItem('myData', frequency);
+	console.log("Local storage: " + localStorage.getItem('myData'));
+	console.log(Date.now());
 
   const data = {
     labels: graphLabels,
@@ -225,9 +229,14 @@ function App() {
     let graphLabel2 = [];
     carTableData.forEach((car) => {
       if (!graphLabel2.includes(car.region)) graphLabel2.push(car.region);
+		
     });
     setGraphLabels(graphLabel2);
     let graphPrice = [];
+
+		const timestamp1 = Date.now();
+		console.log("Timestamp 1: " + timestamp1)
+
     graphLabel2.forEach((region) => {
       var sum = 0;
       var length = 0;
@@ -242,6 +251,7 @@ function App() {
       graphPrice.push(sum / length);
     });
     const timestamp2 = Date.now();
+		console.log("Timestamp 2: " + timestamp2)
     setFrequency(graphPrice);
   }, [carTableData]);
 
