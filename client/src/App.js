@@ -20,9 +20,7 @@ function App() {
   const [graphPrices, setGraphPrices] = useState([]);
   const [frequency, setFrequency] = useState([]);
 
-	localStorage.setItem('myData', frequency);
-	console.log("Local storage: " + localStorage.getItem('myData'));
-	console.log(Date.now());
+  let odomSum = 0;
 
   const data = {
     labels: graphLabels,
@@ -201,14 +199,13 @@ function App() {
     });
     setCarTableData(currentSelection);
   }, [carData, currentCompany, currentModel, currentYear]);
-
+  let graphLabel = [];
   useEffect(() => {
-    let graphLabel = [];
     carTableData.forEach((car) => {
       if (!graphLabel.includes(car.region)) graphLabel.push(car.region);
     });
     setGraphLabels(graphLabel);
-
+    const timestamp1 = Date.now();
     //average price
     let graphPrice = [];
     graphLabel.forEach((region) => {
@@ -222,36 +219,40 @@ function App() {
       }
       graphPrice.push(sum / length);
     });
+    const timestamp2 = Date.now();
+    const diff = timestamp2 - timestamp1;
+    console.log("average price time difference: ");
+    console.log(diff);
+    console.log("milliseconds");
     setGraphPrices(graphPrice);
   }, [carTableData]);
 
+  
+  //^global vars
   useEffect(() => {
-    let graphLabel2 = [];
-    carTableData.forEach((car) => {
-      if (!graphLabel2.includes(car.region)) graphLabel2.push(car.region);
-		
-    });
-    setGraphLabels(graphLabel2);
     let graphPrice = [];
 
 		const timestamp1 = Date.now();
-		console.log("Timestamp 1: " + timestamp1)
 
-    graphLabel2.forEach((region) => {
-      var sum = 0;
-      var length = 0;
+    graphLabel.forEach((region) => {
+      var sums = 0;
+      var lengths = 0;
+      
       for (let i = 0; i < carTableData.length; i++) {
-        if (currentSelection !== carTableData[i]) {
+        if (!carTableData.includes(currentSelection)) {
           if (carTableData[i].region === region) {
-            sum += parseInt(carTableData[i].odometer);
-            length++;
+            sums += parseInt(carTableData[i].odometer);
+            lengths++;
           }
         }
       }
-      graphPrice.push(sum / length);
+      graphPrice.push(sums / lengths);
     });
     const timestamp2 = Date.now();
-		console.log("Timestamp 2: " + timestamp2)
+    const diff = timestamp2 - timestamp1;
+    console.log("average odom time difference: ");
+    console.log(diff);
+    console.log("milliseconds");
     setFrequency(graphPrice);
   }, [carTableData]);
 

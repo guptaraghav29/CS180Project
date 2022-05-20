@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 
 const AveragePrice = ({ carTableData, currentSelection }) => {
   const [averagePrice, setAveragePrice] = useState(0);
-
   useEffect(() => {
     let selectedChoices = currentSelection;
     let price = 0;
