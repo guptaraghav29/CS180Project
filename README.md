@@ -10,31 +10,39 @@ Group Members:
 4. Harshi Doddapaneni
 5. Yug Patel
 
-We will be using a used cars database and perform data analytics to do the folllowing:
+## Features
 
-1. Given a make and model of a car, the average price youd get a deal for.
-2. Given a location, what type of cars are being sold and how likely your make and model will be sold.
-3. Given a location, show all the cars that are competition for you and make a datavis tool to show it in. relation to your car.
-4. Add a datavis graph to show how the model is trending.
+We are performing data analytics on the used car dataset to achieve following results:
 
- ## Installation/Usage
- > Install NPM packages
- 
+1. Given make and model and/or year of a car, the average price distribution among the regions. (Shows a bar graph)
+2. Given make and model and/or year of a car, average price of the selected entries.
+3. Given make and model and/or year of a car, the average odometer distribution among the regions. (This is perfomed with incremental analysis. Shows a pie chart)
+
+Other Features:
+
+- Search for cars by entering make of a car and additional filters by model and/or year.
+- Add car entries to the dataset
+- Export the results as a csv file.
+- Delete car entries from the dataset.
+
+## Installation/Usage
+
+> Install NPM packages
+
      $ cd server
      $ npm i --force
      $ cd ..
      $ cd client
      $ npm i --force
      $ cd ..
-  
- > Start the back-end server
- 
+
+> Start the back-end server
+
      $ cd server
      $ npm run dev
-  
- > Start the front-end
- 
+
+> Start the front-end
+
      $ cd client
      $ npm start
-     
 

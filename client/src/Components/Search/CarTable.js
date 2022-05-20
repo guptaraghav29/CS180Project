@@ -319,6 +319,7 @@ const CarTable = ({
         <BarChart chartData={chartData} />
         <PieChart chartData={chartData2} />
       </div>
+      <div style={{ padding: "1%" }}></div>
     </div>
   );
 };
