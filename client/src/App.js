@@ -1,11 +1,13 @@
 import "./App.css";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import CarBrands from "./Components/Search/CarBrands";
 import CarModels from "./Components/Search/CarModels";
 import CarYears from "./Components/Search/CarYears";
 import CarTable from "./Components/Search/CarTable";
 import NavBar from "./Components/NavBar/NavBar";
+// import {store, useGlobalState} from 'state-pool';
 // import ChartTrends from "./Components/Analytics/ChartTrends";
+
 
 function App() {
 	const [carData, setCarData] = useState([]);
@@ -20,6 +22,16 @@ function App() {
 	const [graphLabels, setGraphLabels] = useState([]);
 	const [graphPrices, setGraphPrices] = useState([]);
 	const [frequency, setFrequency] = useState([]);
+
+	function usePrevious(value) {
+		const ref = useRef();
+		useEffect(() => {
+		  ref.current = value;
+		});
+
+		if(frequency !== null)
+			return ref.current;
+	}
 
 	const data = {
 		labels: graphLabels,
@@ -206,7 +218,6 @@ function App() {
 		});
 		setGraphLabels(graphLabel);
 
-
 		//average price
 		let graphPrice = [];
 		graphLabel.forEach((region) => {
@@ -223,6 +234,8 @@ function App() {
 		setGraphPrices(graphPrice);
 	}, [carTableData]);
 
+	const prevAmount = usePrevious({frequency, setFrequency});
+		
 	useEffect(() => {
 		let graphLabel = [];
 		carTableData.forEach((car) => {
@@ -230,14 +243,14 @@ function App() {
 		});
 		setGraphLabels(graphLabel);
 
+		//average miles
+		let graphMiles = [];
 
-		//average price
-		let graphPrice = [];
 		graphLabel.forEach((region) => {
 			var sum = 0;
 			var length = 0;
-			for (let i = 0; i < carTableData.length; i++) {
-				if(currentSelection !== carTableData[i])
+			for (let i = 0; i < usePrevious.length; i++) {
+				if(currentSelection !== prevAmount.frequency)
 				{
 					if (carTableData[i].region === region) {
 						sum += parseInt(carTableData[i].odometer);
@@ -245,10 +258,16 @@ function App() {
 					}
 				}
 			}
-			graphPrice.push(sum / length);
+			graphMiles.push(sum / length);
 		});
-		setFrequency(graphPrice);
+		setFrequency(graphMiles);
 	}, [carTableData]);
+
+	// useEffect(() => {
+	// 	localStorage.setItem("new list").JSON.stringify(graphLabels);
+	// }, [carTableData]);
+
+
 
 
 	return (

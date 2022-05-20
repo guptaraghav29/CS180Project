@@ -61,13 +61,15 @@ const ImportCSV = () => {
 									header: true,
 									complete: function (results) {
 										console.log("Finished importing: ", results.data);
+										console.log(results.data);
+										console.log(results.data[0].id)
 										fetch(`/cars`, {
 											method: "POST",
 											headers: {
 												Accept: "application/json",
 												"Content-Type": "application/json",
 											},
-											body: results.data,
+											body: JSON.stringify(results.data),
 										}).then((response) => {
 											if (!response.status === 200) {
 												console.log("error");
