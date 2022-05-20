@@ -19,7 +19,11 @@ const AveragePrice = ({ carTableData, currentSelection }) => {
     );
   }, [carTableData, currentSelection]);
 
-  return <div> Average Price: ${averagePrice}</div>;
+  return (
+    <div className="items-center flex justify-center">
+      <h1>Average Price: ${averagePrice}</h1>
+    </div>
+  );
 };
 
 export default AveragePrice;

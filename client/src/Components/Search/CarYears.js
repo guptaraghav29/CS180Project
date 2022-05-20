@@ -29,6 +29,7 @@ const CarYears = ({ modelYears, currentYear, setCurrentYear, style }) => {
         autoComplete={true}
         autoHighlight={true}
         clearOnEscape={true}
+        autoSelect={true}
       />
     </div>
   );

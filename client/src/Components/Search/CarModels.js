@@ -41,6 +41,7 @@ const CarModels = ({
         autoComplete={true}
         autoHighlight={true}
         clearOnEscape={true}
+        autoSelect={true}
       />
     </div>
   );

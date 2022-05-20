@@ -10,23 +10,29 @@ const options = {
     },
     title: {
       display: true,
-      text: 'Average Odometer of Region',
+      text: "Average Odometer of Region",
       padding: {
-          top: 10,
-      }
-    }
+        top: 30,
+        bottom: 30,
+      },
+      color: "black",
+      font: {
+        weight: "bold",
+        size: 15,
+      },
+    },
   },
 };
 
 const PieChart = ({ chartData }) => {
   return (
-    <div style={{
-      height: "50%",
-      width: "35%",
-      textAlign: "center",
-      paddingLeft: "1.5%",
-      borderLeft: "5px solid #D0D0D0",    
-    }}>
+    <div
+      className="flex 1"
+      style={{
+        height: "80%",
+        width: "35%",
+      }}
+    >
       <Pie data={chartData} options={options} />
     </div>
   );

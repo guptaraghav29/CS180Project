@@ -5,7 +5,7 @@ const fs = require("fs");
 let carData = [];
 
 csv()
-  .fromFile("data/vehicles.csv")
+  .fromFile("data/sample.csv")
   .then((jsonObj) => {
     carData = jsonObj;
   });
@@ -45,6 +45,7 @@ app.post("/cars/:id/update", (req, res) => {
   }
   carData.forEach((car) => {
     if (car.id === id) {
+      field = field === "brand" ? "manufacturer" : field;
       car[field] = value;
       res.status(200).json(car);
     }

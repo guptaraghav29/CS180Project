@@ -1,5 +1,6 @@
 import React from "react";
 import { Bar } from "react-chartjs-2";
+//eslint-disable-next-line
 import Chart from "chart.js/auto";
 
 const options = {
@@ -10,21 +11,30 @@ const options = {
     },
     title: {
       display: true,
-      text: 'Average Price of Region',
-    }
+      text: "Average Price of Region",
+      padding: {
+        top: 10,
+        bottom: 30,
+      },
+      color: "black",
+      font: {
+        weight: "bold",
+        size: 15,
+      },
+    },
   },
-
 };
 
 const BarChart = ({ chartData }) => {
   return (
-    <div style={{
-      height: "100%",
-      width: "60%",
-      textAlign: "center",
-      padding: "1.5%",
-      // borderRight: "3px solid #D0D0D0",
-    }}>
+    <div
+      className="flex-1"
+      style={{
+        height: "80%",
+        width: "40%",
+        borderRight: "1px solid #ccc",
+      }}
+    >
       {/* <h1> Average Price</h1> */}
       <Bar data={chartData} options={options} />
     </div>
