@@ -307,8 +307,8 @@ const CarTable = ({
 					/>
 				</div>
 			</div>
-			<div className="items-center px-8" style={{ width: 800 }}>
-				Chart
+			<div className="flex items-center px-1" style={{ width: "100%", margin: 10 }}>
+
 				<BarChart chartData={chartData} />
 			</div>
 		</div>

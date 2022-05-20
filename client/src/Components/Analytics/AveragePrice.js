@@ -19,7 +19,7 @@ const AveragePrice = ({ carTableData, currentSelection }) => {
     );
   }, [carTableData, currentSelection]);
 
-  return <div> Average Price: {averagePrice}</div>;
+  return <div> Average Price: ${averagePrice}</div>;
 };
 
 export default AveragePrice;
