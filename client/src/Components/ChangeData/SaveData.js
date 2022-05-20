@@ -33,7 +33,7 @@ const SaveData = ({ carTableData }) => {
             background: "#2e3138",
           }
         }}
-      ><CSVLink {...csvReport}></CSVLink> Export Data </Button>
+      ><CSVLink {...csvReport}>Export Data</CSVLink>  </Button>
     </div>
   );
 };
