@@ -29,6 +29,11 @@ app.post("/cars/:id", (req, res) => {
   res.status(200).json(req.body);
 });
 
+app.post("/cars", (req, res) => {
+  carData.push(req.body);
+  res.status(200).json(req.body);
+});
+
 app.get("/cars", (req, res) => {
   res.json(carData);
 });

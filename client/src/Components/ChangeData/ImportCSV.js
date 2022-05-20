@@ -1,43 +1,48 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Button from "@mui/material/Button";
-
-
-// const headers = [
-// 	{ label: 'ID', key: 'id' },
-// 	{ label: 'Brand', key: 'brand' },
-// 	{ label: 'Model', key: 'model' },
-// 	{ label: 'Year', key: 'year' },
-// 	{ label: 'Price', key: 'price' },
-// 	{ label: 'Odometer', key: 'odometer' },
-// 	{ label: 'Status', key: 'title_status' },
-// 	{ label: 'Color', key: 'paint_color' },
-// 	{ label: 'Region', key: 'region' },
-// 	{ label: 'State', key: 'state' },
-// 	{ label: 'Date Listed', key: 'posting_date' }
-// ];
+import Papa from "papaparse";
 
 const ImportCSV = () => {
 
-	const [file, setFile] = useState();
+	// const [file, setFile] = useState();
 
-	const fileReader = new FileReader();
+	// const fileReader = new FileReader();
 
-	const handleOnChange = (e) => {
-		setFile(e.target.files[0]);
-	};
+	// const handleOnChange = (e) => {
+	// 	setFile(e.target.files[0]);
+	// };
 
-	const handleOnSubmit = (e) => {
-		e.preventDefault();
+	// let csvOutput = "csv"
 
-		if (file) {
-			fileReader.onload = function (event) {
-				const csvOutput = event.target.result;
-				console.log(csvOutput)
-			};
+	// const handleOnSubmit = (e) => {
+	// 	e.preventDefault();
 
-			fileReader.readAsText(file);
-		}
-	};
+	// 	if (file) {
+	// 		fileReader.onload = function (event) {
+	// 			csvOutput = event.target.result;
+	// 			console.log(csvOutput)
+	// 		};
+
+	// 		fetch(`/cars`, {
+	// 			method: "POST",
+	// 			headers: {
+	// 				Accept: "application/json",
+	// 				"Content-Type": "application/json",
+	// 			},
+	// 			body: JSON.stringify({ csvOutput }),
+	// 		}).then((response) => {
+	// 			if (!response.status === 200) {
+	// 				console.log("error");
+	// 			}
+	// 			else {
+	// 				console.log("suceess: cars added to original csv")
+	// 			}
+	// 		});
+
+	// 		fileReader.readAsText(file);
+	// 	}
+	// };
+
 
 	return (
 		<div style={{ backgroundColor: "lightcyan" }}>
@@ -45,18 +50,41 @@ const ImportCSV = () => {
 			<div style={{ textAlign: "center" }}>
 				<form>
 					<input
-						type={"file"}
-						id={"csvFileInput"}
-						accept={".csv"}
-						onChange={handleOnChange}
+						type="file"
+						accept=".csv,.xlsx,.xls"
+						onChange={(e) => {
+							const files = e.target.files;
+							console.log(files);
+							if (files) {
+								console.log(files[0]);
+								Papa.parse(files[0], {
+									header: true,
+									complete: function (results) {
+										console.log("Finished importing: ", results.data);
+										fetch(`/cars`, {
+											method: "POST",
+											headers: {
+												Accept: "application/json",
+												"Content-Type": "application/json",
+											},
+											body: results.data,
+										}).then((response) => {
+											if (!response.status === 200) {
+												console.log("error");
+											}
+											else {
+												console.log("suceess: cars added to original csv")
+											}
+										});
+									}
+								}
+								)
+							}
+						}}
 					/>
 					<br></br>
-					<Button
-						onClick={(e) => {
-							handleOnSubmit(e);
-						}}
-					>
-						IMPORT CSV
+					<Button>
+						Submit CSV
 					</Button>
 				</form>
 			</div>
