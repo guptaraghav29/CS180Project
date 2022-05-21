@@ -1,8 +1,13 @@
 import React from "react";
-import { Pie } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 import Chart from "chart.js/auto";
 
 const options = {
+  scales: {
+    y: {
+      suggestedMin: 9,
+    }
+  },
   responsive: true,
   plugins: {
     legend: {
@@ -10,7 +15,7 @@ const options = {
     },
     title: {
       display: true,
-      text: "Average Odometer of Region",
+      text: "Probability Of A Sale Given Car Year",
       padding: {
         top: 30,
         bottom: 30,
@@ -24,18 +29,18 @@ const options = {
   },
 };
 
-const PieChart = ({ chartData }) => {
+const LineChart = ({ chartData }) => {
   return (
     <div
       className="flex 1"
       style={{
-        height: "80%",
-        width: "35%",
+        height: "100%",
+        width: "51%",
       }}
     >
-      <Pie data={chartData} options={options} />
+      <Line data={chartData} options={options} />
     </div>
   );
 };
 
-export default PieChart;
+export default LineChart;
