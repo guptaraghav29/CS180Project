@@ -225,35 +225,31 @@ function App() {
     setGraphPrices(graphPrice);
   }, [carTableData]);
 
+  
+  //trend line feature
   useEffect(() => {
     let graphLabel2 = [];
     carTableData.forEach((car) => {
-      if (!graphLabel2.includes(car.region)) graphLabel2.push(car.region);
+      if (!graphLabel2.includes(car.brand)) graphLabel2.push(car.brand);
 		
     });
     setGraphLabels(graphLabel2);
-    let graphPrice = [];
+    let averagePricePerYear = [];
 
-		const timestamp1 = Date.now();
-		console.log("Timestamp 1: " + timestamp1)
-
-    graphLabel2.forEach((region) => {
+    graphLabel2.forEach((brand) => {
       var sum = 0;
       var length = 0;
-      for (let i = 0; i < carTableData.length; i++) {
-        if (currentSelection !== carTableData[i]) {
-          if (carTableData[i].region === region) {
-            sum += parseInt(carTableData[i].odometer);
+      for (let i = 0; i < data.length; i++) {
+          if (data[i].brand === brand) {
+            sum += parseInt(data[i].price);
             length++;
-          }
         }
       }
-      graphPrice.push(sum / length);
+      averagePricePerYear.push([5,4,5 ]);
     });
-    const timestamp2 = Date.now();
-		console.log("Timestamp 2: " + timestamp2)
-    setFrequency(graphPrice);
-  }, [carTableData]);
+
+    setFrequency(averagePricePerYear);
+  }, [data]);
 
   return (
     <div className="flex flex-col items-center">

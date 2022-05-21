@@ -1,5 +1,5 @@
 import React from "react";
-import { Pie } from "react-chartjs-2";
+import { Pie, Line } from "react-chartjs-2";
 import Chart from "chart.js/auto";
 
 const options = {
@@ -10,7 +10,7 @@ const options = {
     },
     title: {
       display: true,
-      text: "Average Odometer of Region",
+      text: "Brand Prices Over 5 Years",
       padding: {
         top: 30,
         bottom: 30,
@@ -24,7 +24,7 @@ const options = {
   },
 };
 
-const PieChart = ({ chartData }) => {
+const LineChart = ({ chartData }) => {
   return (
     <div
       className="flex 1"
@@ -33,9 +33,9 @@ const PieChart = ({ chartData }) => {
         width: "35%",
       }}
     >
-      <Pie data={chartData} options={options} />
+      <Line data={chartData} options={options} />
     </div>
   );
 };
 
-export default PieChart;
+export default LineChart;

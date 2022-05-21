@@ -5,7 +5,8 @@ import AddButton from "../ChangeData/AddButton";
 import SaveData from "../ChangeData/SaveData";
 import AveragePrice from "../Analytics/AveragePrice";
 import BarChart from "../Graphs/BarChart";
-import PieChart from "../Graphs/PieChart";
+import LineChart from "../Graphs/LineChart";
+import { Line } from "react-chartjs-2";
 
 const columns = [
   {
@@ -317,7 +318,7 @@ const CarTable = ({
         }}
       >
         <BarChart chartData={chartData} />
-        <PieChart chartData={chartData2} />
+        <LineChart chartData={chartData2} />
       </div>
       <div style={{ padding: "1%" }}></div>
     </div>
