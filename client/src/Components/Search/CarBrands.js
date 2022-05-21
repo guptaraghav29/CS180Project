@@ -32,12 +32,14 @@ const CarBrands = ({
           if (userSelection !== currentCompany) {
             setCurrentModel("");
           }
+          console.log(currentCompany);
         }}
         onChange={(event, userSelection) => {
           setCurrentCompany(userSelection);
           if (userSelection !== currentCompany) {
             setCurrentModel("");
           }
+          console.log(currentCompany);
         }}
         isOptionEqualToValue={(option, value) => option.id === value.id}
         autoComplete={true}

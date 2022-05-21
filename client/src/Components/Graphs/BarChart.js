@@ -30,12 +30,11 @@ const BarChart = ({ chartData }) => {
     <div
       className="flex-1"
       style={{
-        height: "80%",
-        width: "40%",
+        height: "100%",
+        width: "49%",
         borderRight: "1px solid #ccc",
       }}
     >
-      {/* <h1> Average Price</h1> */}
       <Bar data={chartData} options={options} />
     </div>
   );

@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import CarBrands from "./Components/Search/CarBrands";
 import CarModels from "./Components/Search/CarModels";
 import CarYears from "./Components/Search/CarYears";
@@ -21,8 +21,6 @@ function App() {
   const [graphLabels2, setGraphLabels2] = useState([]);
   const [graphPrices, setGraphPrices] = useState([]);
   const [frequency, setFrequency] = useState([]);
-
-  let odomSum = 0;
 
   const data = {
     labels: graphLabels,
@@ -201,13 +199,14 @@ function App() {
     });
     setCarTableData(currentSelection);
   }, [carData, currentCompany, currentModel, currentYear]);
-  let graphLabel = [];
+
   useEffect(() => {
+    let graphLabel = [];
     carTableData.forEach((car) => {
       if (!graphLabel.includes(car.region)) graphLabel.push(car.region);
     });
     setGraphLabels(graphLabel);
-    const timestamp1 = Date.now();
+
     //average price
     let graphPrice = [];
     graphLabel.forEach((region) => {
@@ -221,26 +220,13 @@ function App() {
       }
       graphPrice.push(sum / length);
     });
-    const timestamp2 = Date.now();
-    const diff = timestamp2 - timestamp1;
-    console.log("average price time difference: ");
-    console.log(diff);
-    console.log("milliseconds");
     setGraphPrices(graphPrice);
   }, [carTableData]);
 
-  //^global vars
   useEffect(() => {
-    let year = [];
-    let averages = [];
-    const timestamp1 = Date.now();
-
-    //models = companyModels;
-    //console.log(models);
-    year = carYears;
-    let test = [];
+    let year = carYears;
+    let computeLineData = [];
     year.forEach((years) => {
-      var sum = 0;
       var length = 0;
       for (let i = 0; i < carData.length; i++) {
         if (
@@ -250,85 +236,19 @@ function App() {
           length = length + 1;
         }
       }
-      test.push(length);
+      computeLineData.push(length);
     });
-    console.log(test);
-    let test2 = [];
-    for (let i = 0; i < test.length; ++i) {
-      let mod = test[i] % 10;
+    let lineData = [];
+    for (let i = 0; i < computeLineData.length; ++i) {
+      let mod = computeLineData[i] % 10;
       if (mod === 0) {
-        test2.push(95);
-      } else test2.push(mod * 10);
+        lineData.push(95);
+      } else lineData.push(mod * 10);
     }
-    console.log("test2");
-    console.log(test2);
 
-    setFrequency(test2);
+    setFrequency(lineData);
     setGraphLabels2(year);
-    /*
-    year.forEach((years) => {
-      var sum = 0;
-      var length = 0;
-      for (let i = 0; i < carData.length; i++) {
-        if (carData[i].manufacturer === currentCompany && carData[i].year === years) {
-          sum += parseInt(carData[i].price);
-          length = length + 1;
-        }
-      }
-      test.push(sum / length);
-      // console.log("model :");
-      // console.log(model);
-      // console.log("Avg ");
-      // console.log(sum / length);
-    });
-    // console.log(carYears);
-    // let years = carYears.slice(-6);
-    // console.log(years);
-    let years = carYears;
-    console.log("test: ")
-    console.log(test);
-    
-    console.log("years: ");
-    console.log(years);
-    let size = 0;
-    if (test.length < 9) {
-      size = test.length;
-    }
-    else {
-      size = 10;
-    }
-    let sliceNum = size * -1;
-    let newTest = test.slice(sliceNum);
-    let newYears = years.slice(sliceNum);
-    console.log("newTest: ");
-    console.log(newTest);
-    console.log("newYears: ");
-    console.log(newYears);
-    // for (let i = 0; i < test.length; ++i) {
-    //   if (isNaN(test[i])) {
-    //     test.splice(i, 1);
-    //     years.splice(i, 1);
-    //   }
-    // }
-    // console.log("test2: ")
-    // console.log(test);
-    // console.log("years2: ");
-    // console.log(years);
-
-    // console.log("before this");
-    // console.log(averages);
-    // averages.sort();
-    // console.log(averages);
-    // let last10 = averages.slice(-10);
-    // console.log(last10);
-    // let last10models = models.slice(-10);
-    // console.log(last10models);
-
-
-    setFrequency(newTest);
-    setGraphLabels2(newYears);
-    */
-  }, [carYears, carTableData]);
+  }, [carYears, carTableData, carData, currentCompany]);
 
   return (
     <div className="flex flex-col items-center">
