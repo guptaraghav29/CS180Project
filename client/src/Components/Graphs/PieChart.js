@@ -5,7 +5,8 @@ import Chart from "chart.js/auto";
 const options = {
   scales: {
     y: {
-      suggestedMin: 9,
+      suggestedMin: 0,
+      suggestedMax: 100,
     }
   },
   responsive: true,
