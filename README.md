@@ -16,7 +16,7 @@ We are performing data analytics on the used car dataset to achieve following re
 
 1. Given make and model and/or year of a car, the average price distribution among the regions. (Shows a bar graph)
 2. Given make and model and/or year of a car, average price of the selected entries.
-3. Given make of a car, probability of a sale for a given year. (This is perfomed with incremental analysis. Shows a scatter plot)
+3. Given make of a car, probability of a sale for a given year. (This is perfomed with incremental analysis. Shows a line plot)
 
 Other Features:
 
