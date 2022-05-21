@@ -61,22 +61,7 @@ function App() {
     datasets: [
       {
         data: frequency,
-        backgroundColor: [
-          "#90EE91",
-          "#0F7C63",
-          "#FFCCA6",
-          "#F9F3DE",
-          "#EC2E5F",
-          "#2ECFCA",
-          "#5D3B45",
-          "#7F5F61",
-          "#004B4B",
-          "#7ACFD4",
-          "#FFAFAF",
-          "#F0D29C",
-          "#DCBBCD",
-          "#8385A0",
-        ],
+        backgroundColor: ["#0F7C63"],
         hoverOffset: 10,
       },
     ],
@@ -144,7 +129,10 @@ function App() {
   useEffect(() => {
     let years = [];
     carData.forEach((car) => {
-      if (car.manufacturer === currentCompany && years.indexOf(car.year) === -1) {
+      if (
+        car.manufacturer === currentCompany &&
+        years.indexOf(car.year) === -1
+      ) {
         years.push(car.year);
       }
     });
@@ -241,22 +229,24 @@ function App() {
     setGraphPrices(graphPrice);
   }, [carTableData]);
 
-  
   //^global vars
   useEffect(() => {
     let year = [];
     let averages = [];
-		const timestamp1 = Date.now();
+    const timestamp1 = Date.now();
 
     //models = companyModels;
     //console.log(models);
     year = carYears;
     let test = [];
-    year.forEach((years) => { 
+    year.forEach((years) => {
       var sum = 0;
       var length = 0;
       for (let i = 0; i < carData.length; i++) {
-        if (carData[i].manufacturer === currentCompany && carData[i].year === years) {
+        if (
+          carData[i].manufacturer === currentCompany &&
+          carData[i].year === years
+        ) {
           length = length + 1;
         }
       }
@@ -268,9 +258,7 @@ function App() {
       let mod = test[i] % 10;
       if (mod === 0) {
         test2.push(95);
-      }
-      else
-        test2.push(mod * 10);
+      } else test2.push(mod * 10);
     }
     console.log("test2");
     console.log(test2);

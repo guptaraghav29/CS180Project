@@ -5,7 +5,7 @@ import AddButton from "../ChangeData/AddButton";
 import SaveData from "../ChangeData/SaveData";
 import AveragePrice from "../Analytics/AveragePrice";
 import BarChart from "../Graphs/BarChart";
-import LineChart from "../Graphs/PieChart";
+import LineChart from "../Graphs/LineChart";
 
 const columns = [
   {
@@ -311,7 +311,7 @@ const CarTable = ({
         </div>
       </div>
       <div
-        className="flex items-center space-x-1.5 px-1 mt-4 rounded shadow-md shadow-gray-400"
+        className="flex items-center space-x-1.5 px-1 mt-4 rounded shadow-md shadow-gray-400 py-2"
         style={{
           background: "#f9f9f9",
         }}
